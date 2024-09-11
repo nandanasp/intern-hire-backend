@@ -1,0 +1,11 @@
+pandas
+requests
+python-dotenv
+langchain
+langchain-community
+langchain_groq
+langchain_google_genai
+bs4
+unstructured
+tiktoken
+faiss-cpu
