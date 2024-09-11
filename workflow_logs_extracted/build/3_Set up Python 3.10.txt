@@ -1,0 +1,6 @@
+2024-09-09T08:39:49.3165911Z ##[group]Run actions/setup-python@v3
+2024-09-09T08:39:49.3166396Z with:
+2024-09-09T08:39:49.3166833Z   python-version: 3.10
+2024-09-09T08:39:49.3167388Z   token: ***
+2024-09-09T08:39:49.3167733Z ##[endgroup]
+2024-09-09T08:39:49.4303252Z Successfully setup CPython (3.10.14)

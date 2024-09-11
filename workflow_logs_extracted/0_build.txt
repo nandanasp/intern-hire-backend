@@ -1,0 +1,370 @@
+2024-09-09T08:39:37.6321975Z Requested labels: ubuntu-latest
+2024-09-09T08:39:37.6322271Z Job defined at: madangopal16072000/fyle-interview-intern-backend/.github/workflows/python-app.yml@refs/heads/main
+2024-09-09T08:39:37.6322365Z Waiting for a runner to pick up this job...
+2024-09-09T08:39:38.4147826Z Job is waiting for a hosted runner to come online.
+2024-09-09T08:39:42.2888456Z Job is about to start running on the hosted runner: GitHub Actions 1 (hosted)
+2024-09-09T08:39:46.8505447Z Current runner version: '2.319.1'
+2024-09-09T08:39:46.8532980Z ##[group]Operating System
+2024-09-09T08:39:46.8534008Z Ubuntu
+2024-09-09T08:39:46.8534553Z 22.04.4
+2024-09-09T08:39:46.8534984Z LTS
+2024-09-09T08:39:46.8535290Z ##[endgroup]
+2024-09-09T08:39:46.8535677Z ##[group]Runner Image
+2024-09-09T08:39:46.8536190Z Image: ubuntu-22.04
+2024-09-09T08:39:46.8536556Z Version: 20240901.1.0
+2024-09-09T08:39:46.8537576Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20240901.1/images/ubuntu/Ubuntu2204-Readme.md
+2024-09-09T08:39:46.8539157Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20240901.1
+2024-09-09T08:39:46.8540057Z ##[endgroup]
+2024-09-09T08:39:46.8540418Z ##[group]Runner Image Provisioner
+2024-09-09T08:39:46.8540966Z 2.0.384.1
+2024-09-09T08:39:46.8541293Z ##[endgroup]
+2024-09-09T08:39:46.8556702Z ##[group]GITHUB_TOKEN Permissions
+2024-09-09T08:39:46.8558319Z Contents: read
+2024-09-09T08:39:46.8558865Z Metadata: read
+2024-09-09T08:39:46.8559428Z ##[endgroup]
+2024-09-09T08:39:46.8562586Z Secret source: Actions
+2024-09-09T08:39:46.8563167Z Prepare workflow directory
+2024-09-09T08:39:46.9176873Z Prepare all required actions
+2024-09-09T08:39:46.9336043Z Getting action download info
+2024-09-09T08:39:47.2034861Z Download action repository 'actions/checkout@v4' (SHA:692973e3d937129bcbf40652eb9f2f61becf3332)
+2024-09-09T08:39:47.3054799Z Download action repository 'actions/setup-python@v3' (SHA:3542bca2639a428e1796aaa6a2ffef0c0f575566)
+2024-09-09T08:39:47.3794956Z Download action repository 'MishaKav/pytest-coverage-comment@main' (SHA:e8eba130153248c8e2d8f0e9b5aa7cebf77e3dc6)
+2024-09-09T08:39:47.8433625Z Download action repository 'actions/upload-artifact@v4' (SHA:50769540e7f4bd5e21e526ee35c689e35e0d6874)
+2024-09-09T08:39:48.4906553Z Complete job name: build
+2024-09-09T08:39:48.5806442Z ##[group]Run actions/checkout@v4
+2024-09-09T08:39:48.5806948Z with:
+2024-09-09T08:39:48.5807354Z   repository: madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:48.5808165Z   token: ***
+2024-09-09T08:39:48.5808546Z   ssh-strict: true
+2024-09-09T08:39:48.5808845Z   ssh-user: git
+2024-09-09T08:39:48.5809253Z   persist-credentials: true
+2024-09-09T08:39:48.5809665Z   clean: true
+2024-09-09T08:39:48.5809978Z   sparse-checkout-cone-mode: true
+2024-09-09T08:39:48.5810446Z   fetch-depth: 1
+2024-09-09T08:39:48.5810790Z   fetch-tags: false
+2024-09-09T08:39:48.5811096Z   show-progress: true
+2024-09-09T08:39:48.5811511Z   lfs: false
+2024-09-09T08:39:48.5811837Z   submodules: false
+2024-09-09T08:39:48.5812148Z   set-safe-directory: true
+2024-09-09T08:39:48.5812576Z ##[endgroup]
+2024-09-09T08:39:48.7528086Z Syncing repository: madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:48.7530149Z ##[group]Getting Git version info
+2024-09-09T08:39:48.7531281Z Working directory is '/home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend'
+2024-09-09T08:39:48.7532591Z [command]/usr/bin/git version
+2024-09-09T08:39:48.7533018Z git version 2.46.0
+2024-09-09T08:39:48.7542035Z ##[endgroup]
+2024-09-09T08:39:48.7567031Z Temporarily overriding HOME='/home/runner/work/_temp/ff38491b-185a-4cfd-b610-ddcf72c7629a' before making global git config changes
+2024-09-09T08:39:48.7572128Z Adding repository directory to the temporary git global config as a safe directory
+2024-09-09T08:39:48.7573732Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend
+2024-09-09T08:39:48.7609860Z Deleting the contents of '/home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend'
+2024-09-09T08:39:48.7612934Z ##[group]Initializing the repository
+2024-09-09T08:39:48.7617263Z [command]/usr/bin/git init /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend
+2024-09-09T08:39:48.7677079Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-09-09T08:39:48.7678141Z hint: is subject to change. To configure the initial branch name to use in all
+2024-09-09T08:39:48.7679832Z hint: of your new repositories, which will suppress this warning, call:
+2024-09-09T08:39:48.7680888Z hint:
+2024-09-09T08:39:48.7681664Z hint: 	git config --global init.defaultBranch <name>
+2024-09-09T08:39:48.7682763Z hint:
+2024-09-09T08:39:48.7683582Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-09-09T08:39:48.7684386Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-09-09T08:39:48.7685043Z hint:
+2024-09-09T08:39:48.7685425Z hint: 	git branch -m <name>
+2024-09-09T08:39:48.7686273Z Initialized empty Git repository in /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend/.git/
+2024-09-09T08:39:48.7692889Z [command]/usr/bin/git remote add origin https://github.com/madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:48.7727227Z ##[endgroup]
+2024-09-09T08:39:48.7727914Z ##[group]Disabling automatic garbage collection
+2024-09-09T08:39:48.7731526Z [command]/usr/bin/git config --local gc.auto 0
+2024-09-09T08:39:48.7760605Z ##[endgroup]
+2024-09-09T08:39:48.7761321Z ##[group]Setting up auth
+2024-09-09T08:39:48.7767479Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-09-09T08:39:48.7800951Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-09-09T08:39:48.8095660Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-09-09T08:39:48.8128462Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-09-09T08:39:48.8362962Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-09-09T08:39:48.8398582Z ##[endgroup]
+2024-09-09T08:39:48.8399400Z ##[group]Fetching the repository
+2024-09-09T08:39:48.8406703Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +16e2c962b7ddc5117688f9c3b05c7dad1cf2194a:refs/remotes/origin/main
+2024-09-09T08:39:49.2565760Z From https://github.com/madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:49.2567466Z  * [new ref]         16e2c962b7ddc5117688f9c3b05c7dad1cf2194a -> origin/main
+2024-09-09T08:39:49.2591371Z ##[endgroup]
+2024-09-09T08:39:49.2592092Z ##[group]Determining the checkout info
+2024-09-09T08:39:49.2593623Z ##[endgroup]
+2024-09-09T08:39:49.2598539Z [command]/usr/bin/git sparse-checkout disable
+2024-09-09T08:39:49.2636882Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-09-09T08:39:49.2664662Z ##[group]Checking out the ref
+2024-09-09T08:39:49.2668336Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2024-09-09T08:39:49.2749875Z Switched to a new branch 'main'
+2024-09-09T08:39:49.2753498Z branch 'main' set up to track 'origin/main'.
+2024-09-09T08:39:49.2761295Z ##[endgroup]
+2024-09-09T08:39:49.2795071Z [command]/usr/bin/git log -1 --format='%H'
+2024-09-09T08:39:49.2817592Z '16e2c962b7ddc5117688f9c3b05c7dad1cf2194a'
+2024-09-09T08:39:49.3165933Z ##[group]Run actions/setup-python@v3
+2024-09-09T08:39:49.3166400Z with:
+2024-09-09T08:39:49.3166837Z   python-version: 3.10
+2024-09-09T08:39:49.3167391Z   token: ***
+2024-09-09T08:39:49.3167736Z ##[endgroup]
+2024-09-09T08:39:49.4303292Z Successfully setup CPython (3.10.14)
+2024-09-09T08:39:49.4447791Z ##[group]Run python -m pip install --upgrade pip
+2024-09-09T08:39:49.4448562Z [36;1mpython -m pip install --upgrade pip[0m
+2024-09-09T08:39:49.4449233Z [36;1mif [ -f requirements.txt ]; then pip install -r requirements.txt; fi[0m
+2024-09-09T08:39:49.4479220Z shell: /usr/bin/bash -e {0}
+2024-09-09T08:39:49.4479635Z env:
+2024-09-09T08:39:49.4480041Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:39:49.4480768Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:39:49.4481520Z ##[endgroup]
+2024-09-09T08:39:50.1161211Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages (24.2)
+2024-09-09T08:39:50.8062282Z Collecting alembic==1.7.1 (from -r requirements.txt (line 1))
+2024-09-09T08:39:50.8171630Z   Downloading alembic-1.7.1-py3-none-any.whl.metadata (7.0 kB)
+2024-09-09T08:39:50.8380232Z Collecting attrs==21.2.0 (from -r requirements.txt (line 2))
+2024-09-09T08:39:50.8413938Z   Downloading attrs-21.2.0-py2.py3-none-any.whl.metadata (9.1 kB)
+2024-09-09T08:39:50.8788480Z Collecting click==8.0.1 (from -r requirements.txt (line 3))
+2024-09-09T08:39:50.8819961Z   Downloading click-8.0.1-py3-none-any.whl.metadata (3.2 kB)
+2024-09-09T08:39:51.1897667Z Collecting coverage==5.5 (from -r requirements.txt (line 4))
+2024-09-09T08:39:51.1937713Z   Downloading coverage-5.5-cp310-cp310-manylinux1_x86_64.whl.metadata (8.0 kB)
+2024-09-09T08:39:51.2188841Z Collecting Flask==2.0.1 (from -r requirements.txt (line 5))
+2024-09-09T08:39:51.2226023Z   Downloading Flask-2.0.1-py3-none-any.whl.metadata (3.8 kB)
+2024-09-09T08:39:51.2968190Z Collecting Flask-Alembic==2.0.1 (from -r requirements.txt (line 6))
+2024-09-09T08:39:51.3002878Z   Downloading Flask_Alembic-2.0.1-py2.py3-none-any.whl.metadata (988 bytes)
+2024-09-09T08:39:51.3175388Z Collecting Flask-Migrate==3.1.0 (from -r requirements.txt (line 7))
+2024-09-09T08:39:51.3210430Z   Downloading Flask_Migrate-3.1.0-py3-none-any.whl.metadata (3.1 kB)
+2024-09-09T08:39:51.3393879Z Collecting Flask-SQLAlchemy==2.5.1 (from -r requirements.txt (line 8))
+2024-09-09T08:39:51.3423040Z   Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl.metadata (3.1 kB)
+2024-09-09T08:39:51.4531260Z Collecting gevent==21.8.0 (from -r requirements.txt (line 9))
+2024-09-09T08:39:51.4570401Z   Downloading gevent-21.8.0.tar.gz (6.2 MB)
+2024-09-09T08:39:51.5873993Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 47.9 MB/s eta 0:00:00
+2024-09-09T08:39:52.2256531Z   Installing build dependencies: started
+2024-09-09T08:39:55.2414767Z   Installing build dependencies: finished with status 'done'
+2024-09-09T08:39:55.2422128Z   Getting requirements to build wheel: started
+2024-09-09T08:39:59.5786607Z   Getting requirements to build wheel: finished with status 'done'
+2024-09-09T08:39:59.5806014Z   Preparing metadata (pyproject.toml): started
+2024-09-09T08:40:00.3542288Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-09-09T08:40:00.5087605Z Collecting greenlet==1.1.1 (from -r requirements.txt (line 10))
+2024-09-09T08:40:00.5126475Z   Downloading greenlet-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
+2024-09-09T08:40:00.5346617Z Collecting gunicorn==20.1.0 (from -r requirements.txt (line 11))
+2024-09-09T08:40:00.5393838Z   Downloading gunicorn-20.1.0-py3-none-any.whl.metadata (3.8 kB)
+2024-09-09T08:40:00.5774302Z Collecting importlib-resources==5.2.2 (from -r requirements.txt (line 12))
+2024-09-09T08:40:00.5812823Z   Downloading importlib_resources-5.2.2-py3-none-any.whl.metadata (2.9 kB)
+2024-09-09T08:40:00.5920710Z Collecting iniconfig==1.1.1 (from -r requirements.txt (line 13))
+2024-09-09T08:40:00.5947268Z   Downloading iniconfig-1.1.1-py2.py3-none-any.whl.metadata (2.4 kB)
+2024-09-09T08:40:00.6073288Z Collecting itsdangerous==2.0.1 (from -r requirements.txt (line 14))
+2024-09-09T08:40:00.6103326Z   Downloading itsdangerous-2.0.1-py3-none-any.whl.metadata (2.9 kB)
+2024-09-09T08:40:00.6293143Z Collecting Jinja2==3.0.1 (from -r requirements.txt (line 15))
+2024-09-09T08:40:00.6328227Z   Downloading Jinja2-3.0.1-py3-none-any.whl.metadata (3.5 kB)
+2024-09-09T08:40:00.6526589Z Collecting Mako==1.1.5 (from -r requirements.txt (line 16))
+2024-09-09T08:40:00.6594916Z   Downloading Mako-1.1.5-py2.py3-none-any.whl.metadata (2.8 kB)
+2024-09-09T08:40:00.7079190Z Collecting MarkupSafe==2.0.1 (from -r requirements.txt (line 17))
+2024-09-09T08:40:00.7107655Z   Downloading MarkupSafe-2.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (3.2 kB)
+2024-09-09T08:40:00.7556378Z Collecting marshmallow==3.13.0 (from -r requirements.txt (line 18))
+2024-09-09T08:40:00.7588706Z   Downloading marshmallow-3.13.0-py2.py3-none-any.whl.metadata (7.8 kB)
+2024-09-09T08:40:00.7753238Z Collecting marshmallow-enum==1.5.1 (from -r requirements.txt (line 19))
+2024-09-09T08:40:00.7779874Z   Downloading marshmallow_enum-1.5.1-py2.py3-none-any.whl.metadata (2.5 kB)
+2024-09-09T08:40:00.7992670Z Collecting marshmallow-sqlalchemy==0.26.1 (from -r requirements.txt (line 20))
+2024-09-09T08:40:00.8019508Z   Downloading marshmallow_sqlalchemy-0.26.1-py2.py3-none-any.whl.metadata (6.7 kB)
+2024-09-09T08:40:00.8284836Z Collecting packaging==21.0 (from -r requirements.txt (line 21))
+2024-09-09T08:40:00.8319929Z   Downloading packaging-21.0-py3-none-any.whl.metadata (13 kB)
+2024-09-09T08:40:00.8502195Z Collecting pluggy==1.0.0 (from -r requirements.txt (line 22))
+2024-09-09T08:40:00.8529798Z   Downloading pluggy-1.0.0-py2.py3-none-any.whl.metadata (4.3 kB)
+2024-09-09T08:40:00.8743427Z Collecting py==1.10.0 (from -r requirements.txt (line 23))
+2024-09-09T08:40:00.8809524Z   Downloading py-1.10.0-py2.py3-none-any.whl.metadata (2.7 kB)
+2024-09-09T08:40:00.9153104Z Collecting pyparsing==2.4.7 (from -r requirements.txt (line 24))
+2024-09-09T08:40:00.9182548Z   Downloading pyparsing-2.4.7-py2.py3-none-any.whl.metadata (3.6 kB)
+2024-09-09T08:40:00.9821011Z Collecting pytest==6.2.5 (from -r requirements.txt (line 25))
+2024-09-09T08:40:00.9861288Z   Downloading pytest-6.2.5-py3-none-any.whl.metadata (7.5 kB)
+2024-09-09T08:40:01.0093247Z Collecting pytest-cov==2.12.1 (from -r requirements.txt (line 26))
+2024-09-09T08:40:01.0127040Z   Downloading pytest_cov-2.12.1-py2.py3-none-any.whl.metadata (22 kB)
+2024-09-09T08:40:01.3834742Z Collecting SQLAlchemy==1.4.23 (from -r requirements.txt (line 27))
+2024-09-09T08:40:01.3874398Z   Downloading SQLAlchemy-1.4.23.tar.gz (7.7 MB)
+2024-09-09T08:40:01.4568057Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.7/7.7 MB 116.6 MB/s eta 0:00:00
+2024-09-09T08:40:02.1275048Z   Installing build dependencies: started
+2024-09-09T08:40:03.5194882Z   Installing build dependencies: finished with status 'done'
+2024-09-09T08:40:03.5201022Z   Getting requirements to build wheel: started
+2024-09-09T08:40:03.8473996Z   Getting requirements to build wheel: finished with status 'done'
+2024-09-09T08:40:03.8483670Z   Preparing metadata (pyproject.toml): started
+2024-09-09T08:40:04.1490021Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-09-09T08:40:04.1792954Z Collecting toml==0.10.2 (from -r requirements.txt (line 28))
+2024-09-09T08:40:04.1823978Z   Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+2024-09-09T08:40:04.2190332Z Collecting Werkzeug==2.0.1 (from -r requirements.txt (line 29))
+2024-09-09T08:40:04.2244650Z   Downloading Werkzeug-2.0.1-py3-none-any.whl.metadata (4.4 kB)
+2024-09-09T08:40:04.2500308Z Collecting zipp==3.5.0 (from -r requirements.txt (line 30))
+2024-09-09T08:40:04.2539603Z   Downloading zipp-3.5.0-py3-none-any.whl.metadata (2.3 kB)
+2024-09-09T08:40:04.2667298Z Collecting zope.event==4.5.0 (from -r requirements.txt (line 31))
+2024-09-09T08:40:04.2704218Z   Downloading zope.event-4.5.0-py2.py3-none-any.whl.metadata (4.3 kB)
+2024-09-09T08:40:04.3981545Z Collecting zope.interface==5.4.0 (from -r requirements.txt (line 32))
+2024-09-09T08:40:04.4025534Z   Downloading zope.interface-5.4.0.tar.gz (249 kB)
+2024-09-09T08:40:04.4477554Z   Installing build dependencies: started
+2024-09-09T08:40:05.8524751Z   Installing build dependencies: finished with status 'done'
+2024-09-09T08:40:05.8530035Z   Getting requirements to build wheel: started
+2024-09-09T08:40:06.0238506Z   Getting requirements to build wheel: finished with status 'done'
+2024-09-09T08:40:06.0247537Z   Preparing metadata (pyproject.toml): started
+2024-09-09T08:40:06.2020243Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-09-09T08:40:06.2752230Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages (from gevent==21.8.0->-r requirements.txt (line 9)) (65.5.0)
+2024-09-09T08:40:06.4038062Z Downloading alembic-1.7.1-py3-none-any.whl (208 kB)
+2024-09-09T08:40:06.4119147Z Downloading attrs-21.2.0-py2.py3-none-any.whl (53 kB)
+2024-09-09T08:40:06.4169116Z Downloading click-8.0.1-py3-none-any.whl (97 kB)
+2024-09-09T08:40:06.4226859Z Downloading coverage-5.5-cp310-cp310-manylinux1_x86_64.whl (238 kB)
+2024-09-09T08:40:06.4307646Z Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+2024-09-09T08:40:06.4366546Z Downloading Flask_Alembic-2.0.1-py2.py3-none-any.whl (10 kB)
+2024-09-09T08:40:06.4439660Z Downloading Flask_Migrate-3.1.0-py3-none-any.whl (20 kB)
+2024-09-09T08:40:06.4486670Z Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl (17 kB)
+2024-09-09T08:40:06.4539377Z Downloading greenlet-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (148 kB)
+2024-09-09T08:40:06.4594068Z Downloading gunicorn-20.1.0-py3-none-any.whl (79 kB)
+2024-09-09T08:40:06.4652319Z Downloading importlib_resources-5.2.2-py3-none-any.whl (27 kB)
+2024-09-09T08:40:06.4696937Z Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+2024-09-09T08:40:06.4739306Z Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+2024-09-09T08:40:06.4797898Z Downloading Jinja2-3.0.1-py3-none-any.whl (133 kB)
+2024-09-09T08:40:06.4864018Z Downloading Mako-1.1.5-py2.py3-none-any.whl (75 kB)
+2024-09-09T08:40:06.4916448Z Downloading MarkupSafe-2.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (30 kB)
+2024-09-09T08:40:06.4969236Z Downloading marshmallow-3.13.0-py2.py3-none-any.whl (47 kB)
+2024-09-09T08:40:06.5018588Z Downloading marshmallow_enum-1.5.1-py2.py3-none-any.whl (4.2 kB)
+2024-09-09T08:40:06.5066902Z Downloading marshmallow_sqlalchemy-0.26.1-py2.py3-none-any.whl (15 kB)
+2024-09-09T08:40:06.5118017Z Downloading packaging-21.0-py3-none-any.whl (40 kB)
+2024-09-09T08:40:06.5164008Z Downloading pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+2024-09-09T08:40:06.5211389Z Downloading py-1.10.0-py2.py3-none-any.whl (97 kB)
+2024-09-09T08:40:06.5262494Z Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+2024-09-09T08:40:06.5311327Z Downloading pytest-6.2.5-py3-none-any.whl (280 kB)
+2024-09-09T08:40:06.5373551Z Downloading pytest_cov-2.12.1-py2.py3-none-any.whl (20 kB)
+2024-09-09T08:40:06.5419740Z Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+2024-09-09T08:40:06.5476797Z Downloading Werkzeug-2.0.1-py3-none-any.whl (288 kB)
+2024-09-09T08:40:06.5546790Z Downloading zipp-3.5.0-py3-none-any.whl (5.7 kB)
+2024-09-09T08:40:06.5596121Z Downloading zope.event-4.5.0-py2.py3-none-any.whl (6.8 kB)
+2024-09-09T08:40:06.5841727Z Building wheels for collected packages: gevent, SQLAlchemy, zope.interface
+2024-09-09T08:40:06.5850326Z   Building wheel for gevent (pyproject.toml): started
+2024-09-09T08:41:12.3357792Z   Building wheel for gevent (pyproject.toml): still running...
+2024-09-09T08:41:41.8670757Z   Building wheel for gevent (pyproject.toml): finished with status 'done'
+2024-09-09T08:41:41.8723979Z   Created wheel for gevent: filename=gevent-21.8.0-cp310-cp310-linux_x86_64.whl size=6308794 sha256=69458efde538c22ac2f7b0616f6bef8c4bca0c123a48856c46c68f0828b00fff
+2024-09-09T08:41:41.8726075Z   Stored in directory: /home/runner/.cache/pip/wheels/2a/86/ea/4bc06ac039093587abc9f268c87c60323deeeee308c051f0fb
+2024-09-09T08:41:41.8768748Z   Building wheel for SQLAlchemy (pyproject.toml): started
+2024-09-09T08:41:43.0661766Z   Building wheel for SQLAlchemy (pyproject.toml): finished with status 'done'
+2024-09-09T08:41:43.0677307Z   Created wheel for SQLAlchemy: filename=SQLAlchemy-1.4.23-cp310-cp310-linux_x86_64.whl size=1542973 sha256=676d8630e0af4d416e0e8f2e345098aecfb91210f9ddfc49f3ef6f3ce8d465db
+2024-09-09T08:41:43.0679166Z   Stored in directory: /home/runner/.cache/pip/wheels/b1/83/74/6276352424e42f57b3878fb724f70cbd684af64bd4f5f5a04f
+2024-09-09T08:41:43.0716488Z   Building wheel for zope.interface (pyproject.toml): started
+2024-09-09T08:41:43.7671244Z   Building wheel for zope.interface (pyproject.toml): finished with status 'done'
+2024-09-09T08:41:43.7676245Z   Created wheel for zope.interface: filename=zope.interface-5.4.0-cp310-cp310-linux_x86_64.whl size=251281 sha256=c5b5ff030f9f25745917a8289955c1ef0e4dd2881d665e95932d79228df7b276
+2024-09-09T08:41:43.7678047Z   Stored in directory: /home/runner/.cache/pip/wheels/21/a9/8b/0bfc5594d8e109d5b25d6b69e0cff14d09d93e3522dcb16d2b
+2024-09-09T08:41:43.7705871Z Successfully built gevent SQLAlchemy zope.interface
+2024-09-09T08:41:43.8528487Z Installing collected packages: iniconfig, zope.interface, zope.event, zipp, Werkzeug, toml, pyparsing, py, pluggy, marshmallow, MarkupSafe, itsdangerous, importlib-resources, gunicorn, greenlet, coverage, click, attrs, SQLAlchemy, packaging, marshmallow-enum, Mako, Jinja2, gevent, pytest, marshmallow-sqlalchemy, Flask, alembic, pytest-cov, Flask-SQLAlchemy, Flask-Migrate, Flask-Alembic
+2024-09-09T08:41:46.2217066Z Successfully installed Flask-2.0.1 Flask-Alembic-2.0.1 Flask-Migrate-3.1.0 Flask-SQLAlchemy-2.5.1 Jinja2-3.0.1 Mako-1.1.5 MarkupSafe-2.0.1 SQLAlchemy-1.4.23 Werkzeug-2.0.1 alembic-1.7.1 attrs-21.2.0 click-8.0.1 coverage-5.5 gevent-21.8.0 greenlet-1.1.1 gunicorn-20.1.0 importlib-resources-5.2.2 iniconfig-1.1.1 itsdangerous-2.0.1 marshmallow-3.13.0 marshmallow-enum-1.5.1 marshmallow-sqlalchemy-0.26.1 packaging-21.0 pluggy-1.0.0 py-1.10.0 pyparsing-2.4.7 pytest-6.2.5 pytest-cov-2.12.1 toml-0.10.2 zipp-3.5.0 zope.event-4.5.0 zope.interface-5.4.0
+2024-09-09T08:41:46.6861452Z ##[group]Run export FLASK_APP=core/server.py
+2024-09-09T08:41:46.6862110Z [36;1mexport FLASK_APP=core/server.py[0m
+2024-09-09T08:41:46.6862558Z [36;1mflask db upgrade -d core/migrations/[0m
+2024-09-09T08:41:46.6888313Z shell: /usr/bin/bash -e {0}
+2024-09-09T08:41:46.6888657Z env:
+2024-09-09T08:41:46.6889055Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:41:46.6889750Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:41:46.6890233Z ##[endgroup]
+2024-09-09T08:41:48.4604640Z INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2024-09-09T08:41:48.4605749Z INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+2024-09-09T08:41:48.4756399Z INFO  [alembic.runtime.migration] Running upgrade  -> 4078b3b57e24, Initial migration.
+2024-09-09T08:41:48.4840577Z INFO  [alembic.runtime.migration] Running upgrade 4078b3b57e24 -> 2087a1db8595, assignments
+2024-09-09T08:41:48.5040381Z INFO  [alembic.runtime.migration] Running upgrade 2087a1db8595 -> 52a401750a76, principals
+2024-09-09T08:41:48.5952589Z ##[group]Run set -o pipefail
+2024-09-09T08:41:48.5952946Z [36;1mset -o pipefail[0m
+2024-09-09T08:41:48.5953678Z [36;1mpytest -vvv -s tests/ --cov --cov-fail-under=80 --junit-xml=test_reports/report.xml --cov-report=term-missing | tee pytest_coverage.txt[0m
+2024-09-09T08:41:48.5978776Z shell: /usr/bin/bash -e {0}
+2024-09-09T08:41:48.5979059Z env:
+2024-09-09T08:41:48.5979354Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:41:48.5979868Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:41:48.5980270Z ##[endgroup]
+2024-09-09T08:41:49.7883339Z ============================= test session starts ==============================
+2024-09-09T08:41:49.7885081Z platform linux -- Python 3.10.14, pytest-6.2.5, py-1.10.0, pluggy-1.0.0 -- /opt/hostedtoolcache/Python/3.10.14/x64/bin/python
+2024-09-09T08:41:49.7886300Z cachedir: .pytest_cache
+2024-09-09T08:41:49.7887653Z rootdir: /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend, configfile: pytest.ini
+2024-09-09T08:41:49.7888977Z plugins: cov-2.12.1
+2024-09-09T08:41:49.8405375Z collecting ... collected 24 items
+2024-09-09T08:41:49.8405809Z 
+2024-09-09T08:41:49.8761649Z tests/principals_test.py::test_get_assignments PASSED
+2024-09-09T08:41:49.8808738Z tests/principals_test.py::test_grade_assignment_draft_assignment PASSED
+2024-09-09T08:41:49.8906553Z tests/principals_test.py::test_grade_assignment PASSED
+2024-09-09T08:41:49.8971939Z tests/principals_test.py::test_regrade_assignment PASSED
+2024-09-09T08:41:49.9014782Z tests/principals_test.py::test_get_teachers PASSED
+2024-09-09T08:41:49.9035501Z tests/principals_test.py::test_ready PASSED
+2024-09-09T08:41:49.9057836Z tests/principals_test.py::test_request_without_X_Principal_header PASSED
+2024-09-09T08:41:49.9101875Z tests/students_test.py::test_get_assignments_student_1 PASSED
+2024-09-09T08:41:49.9137759Z tests/students_test.py::test_get_assignments_student_2 PASSED
+2024-09-09T08:41:49.9164850Z tests/students_test.py::test_post_assignment_null_content PASSED
+2024-09-09T08:41:49.9228871Z tests/students_test.py::test_post_assignment_student_1 PASSED
+2024-09-09T08:41:49.9294075Z tests/students_test.py::test_submit_assignment_student_1 PASSED
+2024-09-09T08:41:49.9329365Z tests/students_test.py::test_assignment_resubmit_error PASSED
+2024-09-09T08:41:49.9394495Z tests/students_test.py::test_edit_assignments_student_1 PASSED
+2024-09-09T08:41:49.9432964Z tests/students_test.py::test_edit_assignments_cross PASSED
+2024-09-09T08:41:49.9474310Z tests/teachers_test.py::test_get_assignments_teacher_1 PASSED
+2024-09-09T08:41:49.9512356Z tests/teachers_test.py::test_get_assignments_teacher_2 PASSED
+2024-09-09T08:41:49.9547587Z tests/teachers_test.py::test_grade_assignment_cross PASSED
+2024-09-09T08:41:49.9572097Z tests/teachers_test.py::test_grade_assignment_bad_grade PASSED
+2024-09-09T08:41:49.9607626Z tests/teachers_test.py::test_grade_assignment_bad_assignment PASSED
+2024-09-09T08:41:49.9642931Z tests/teachers_test.py::test_grade_assignment_draft_assignment PASSED
+2024-09-09T08:41:49.9708235Z tests/teachers_test.py::test_grade_assignment PASSED
+2024-09-09T08:41:49.9760913Z tests/SQL/sql_test.py::test_get_assignments_in_various_states PASSED
+2024-09-09T08:41:50.0262398Z tests/SQL/sql_test.py::test_get_grade_A_assignments_for_teacher_with_max_grading PASSED
+2024-09-09T08:41:50.0263422Z 
+2024-09-09T08:41:50.0264695Z - generated xml file: /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend/test_reports/report.xml -
+2024-09-09T08:41:50.0265615Z 
+2024-09-09T08:41:50.0265932Z ---------- coverage: platform linux, python 3.10.14-final-0 ----------
+2024-09-09T08:41:50.0266496Z Name                                 Stmts   Miss  Cover   Missing
+2024-09-09T08:41:50.0267026Z ------------------------------------------------------------------
+2024-09-09T08:41:50.0267503Z core/__init__.py                        19      0   100%
+2024-09-09T08:41:50.0268257Z core/apis/__init__.py                    0      0   100%
+2024-09-09T08:41:50.0269038Z core/apis/assignments/__init__.py        3      0   100%
+2024-09-09T08:41:50.0269572Z core/apis/assignments/principal.py      22      0   100%
+2024-09-09T08:41:50.0270105Z core/apis/assignments/schema.py         36      0   100%
+2024-09-09T08:41:50.0270625Z core/apis/assignments/student.py        31      0   100%
+2024-09-09T08:41:50.0271140Z core/apis/assignments/teacher.py        22      0   100%
+2024-09-09T08:41:50.0271688Z core/apis/decorators.py                 32      1    97%   43
+2024-09-09T08:41:50.0272234Z core/apis/responses.py                   5      0   100%
+2024-09-09T08:41:50.0272729Z core/apis/teachers/__init__.py           1      0   100%
+2024-09-09T08:41:50.0273246Z core/apis/teachers/principal.py         12      0   100%
+2024-09-09T08:41:50.0273756Z core/apis/teachers/schema.py            11      0   100%
+2024-09-09T08:41:50.0274236Z core/libs/__init__.py                    0      0   100%
+2024-09-09T08:41:50.0274719Z core/libs/assertions.py                 15      0   100%
+2024-09-09T08:41:50.0275345Z core/libs/exceptions.py                 10      3    70%   10-12
+2024-09-09T08:41:50.0275911Z core/libs/helpers.py                    10      0   100%
+2024-09-09T08:41:50.0276407Z core/models/__init__.py                  0      0   100%
+2024-09-09T08:41:50.0276917Z core/models/assignments.py              85      2    98%   35, 98
+2024-09-09T08:41:50.0277437Z core/models/students.py                 10      1    90%   13
+2024-09-09T08:41:50.0278116Z core/models/teachers.py                 14      1    93%   13
+2024-09-09T08:41:50.0278668Z core/server.py                          28      5    82%   39-48
+2024-09-09T08:41:50.0279167Z ------------------------------------------------------------------
+2024-09-09T08:41:50.0279574Z TOTAL                                  366     13    96%
+2024-09-09T08:41:50.0279839Z 
+2024-09-09T08:41:50.0280038Z Required test coverage of 80% reached. Total coverage: 96.45%
+2024-09-09T08:41:50.0280524Z ============================== 24 passed in 0.24s ==============================
+2024-09-09T08:41:50.1345500Z ##[group]Run actions/upload-artifact@v4
+2024-09-09T08:41:50.1345855Z with:
+2024-09-09T08:41:50.1346074Z   name: coverage-reports
+2024-09-09T08:41:50.1346436Z   path: ./pytest_coverage.txt
+./test_reports/report.xml
+2024-09-09T08:41:50.1346835Z   if-no-files-found: warn
+2024-09-09T08:41:50.1347107Z   compression-level: 6
+2024-09-09T08:41:50.1347424Z   overwrite: false
+2024-09-09T08:41:50.1348002Z   include-hidden-files: false
+2024-09-09T08:41:50.1348347Z env:
+2024-09-09T08:41:50.1348647Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:41:50.1349147Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:41:50.1349540Z ##[endgroup]
+2024-09-09T08:41:50.3422398Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2024-09-09T08:41:50.3428424Z The least common ancestor is /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend. This will be the root directory of the artifact
+2024-09-09T08:41:50.3430238Z With the provided path, there will be 2 files uploaded
+2024-09-09T08:41:50.3433183Z Artifact name is valid!
+2024-09-09T08:41:50.3434370Z Root directory input is valid!
+2024-09-09T08:41:50.6615756Z Beginning upload of artifact content to blob storage
+2024-09-09T08:41:51.0051751Z Uploaded bytes 1612
+2024-09-09T08:41:51.0939537Z Finished uploading artifact content to blob storage!
+2024-09-09T08:41:51.0943900Z SHA256 hash of uploaded artifact zip is 2595add665dac441f31b0a79aa40438c53e8bf4cfcf512b2e474248ca141f250
+2024-09-09T08:41:51.0945677Z Finalizing artifact upload
+2024-09-09T08:41:51.2345967Z Artifact coverage-reports.zip successfully finalized. Artifact ID 1907969329
+2024-09-09T08:41:51.2347295Z Artifact coverage-reports has been successfully uploaded! Final size is 1612 bytes. Artifact ID is 1907969329
+2024-09-09T08:41:51.2352303Z Artifact download URL: https://github.com/madangopal16072000/fyle-interview-intern-backend/actions/runs/10769642014/artifacts/1907969329
+2024-09-09T08:41:51.2471876Z Post job cleanup.
+2024-09-09T08:41:51.3560159Z Post job cleanup.
+2024-09-09T08:41:51.4490838Z [command]/usr/bin/git version
+2024-09-09T08:41:51.4536604Z git version 2.46.0
+2024-09-09T08:41:51.4583914Z Temporarily overriding HOME='/home/runner/work/_temp/a8ef7ce5-6f04-4c4e-af31-298c53788b97' before making global git config changes
+2024-09-09T08:41:51.4585682Z Adding repository directory to the temporary git global config as a safe directory
+2024-09-09T08:41:51.4599504Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend
+2024-09-09T08:41:51.4635463Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-09-09T08:41:51.4670801Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-09-09T08:41:51.4937456Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-09-09T08:41:51.4960061Z http.https://github.com/.extraheader
+2024-09-09T08:41:51.4971805Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2024-09-09T08:41:51.5003765Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-09-09T08:41:51.5456527Z Cleaning up orphan processes

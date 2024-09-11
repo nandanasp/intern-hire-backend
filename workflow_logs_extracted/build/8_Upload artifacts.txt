@@ -1,0 +1,26 @@
+2024-09-09T08:41:50.1345486Z ##[group]Run actions/upload-artifact@v4
+2024-09-09T08:41:50.1345844Z with:
+2024-09-09T08:41:50.1346071Z   name: coverage-reports
+2024-09-09T08:41:50.1346431Z   path: ./pytest_coverage.txt
+./test_reports/report.xml
+2024-09-09T08:41:50.1346832Z   if-no-files-found: warn
+2024-09-09T08:41:50.1347104Z   compression-level: 6
+2024-09-09T08:41:50.1347422Z   overwrite: false
+2024-09-09T08:41:50.1347994Z   include-hidden-files: false
+2024-09-09T08:41:50.1348344Z env:
+2024-09-09T08:41:50.1348644Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:41:50.1349144Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:41:50.1349531Z ##[endgroup]
+2024-09-09T08:41:50.3422363Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2024-09-09T08:41:50.3428407Z The least common ancestor is /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend. This will be the root directory of the artifact
+2024-09-09T08:41:50.3430179Z With the provided path, there will be 2 files uploaded
+2024-09-09T08:41:50.3433171Z Artifact name is valid!
+2024-09-09T08:41:50.3434362Z Root directory input is valid!
+2024-09-09T08:41:50.6615712Z Beginning upload of artifact content to blob storage
+2024-09-09T08:41:51.0051721Z Uploaded bytes 1612
+2024-09-09T08:41:51.0939514Z Finished uploading artifact content to blob storage!
+2024-09-09T08:41:51.0943884Z SHA256 hash of uploaded artifact zip is 2595add665dac441f31b0a79aa40438c53e8bf4cfcf512b2e474248ca141f250
+2024-09-09T08:41:51.0945663Z Finalizing artifact upload
+2024-09-09T08:41:51.2345950Z Artifact coverage-reports.zip successfully finalized. Artifact ID 1907969329
+2024-09-09T08:41:51.2347287Z Artifact coverage-reports has been successfully uploaded! Final size is 1612 bytes. Artifact ID is 1907969329
+2024-09-09T08:41:51.2352288Z Artifact download URL: https://github.com/madangopal16072000/fyle-interview-intern-backend/actions/runs/10769642014/artifacts/1907969329

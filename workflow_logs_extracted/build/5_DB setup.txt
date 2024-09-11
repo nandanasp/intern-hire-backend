@@ -1,0 +1,13 @@
+2024-09-09T08:41:46.6861437Z ##[group]Run export FLASK_APP=core/server.py
+2024-09-09T08:41:46.6862071Z [36;1mexport FLASK_APP=core/server.py[0m
+2024-09-09T08:41:46.6862555Z [36;1mflask db upgrade -d core/migrations/[0m
+2024-09-09T08:41:46.6888305Z shell: /usr/bin/bash -e {0}
+2024-09-09T08:41:46.6888654Z env:
+2024-09-09T08:41:46.6889051Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:41:46.6889747Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:41:46.6890231Z ##[endgroup]
+2024-09-09T08:41:48.4604592Z INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+2024-09-09T08:41:48.4605740Z INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+2024-09-09T08:41:48.4756380Z INFO  [alembic.runtime.migration] Running upgrade  -> 4078b3b57e24, Initial migration.
+2024-09-09T08:41:48.4840559Z INFO  [alembic.runtime.migration] Running upgrade 4078b3b57e24 -> 2087a1db8595, assignments
+2024-09-09T08:41:48.5040296Z INFO  [alembic.runtime.migration] Running upgrade 2087a1db8595 -> 52a401750a76, principals

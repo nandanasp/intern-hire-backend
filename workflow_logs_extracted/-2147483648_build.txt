@@ -1,0 +1,8 @@
+2024-09-09T08:39:37.2840514Z ##[section]Starting: Prepare job build
+2024-09-09T08:39:37.2845390Z Evaluating strategy
+2024-09-09T08:39:37.2851946Z Creating job '__default'
+2024-09-09T08:39:37.2856244Z Evaluating timeout
+2024-09-09T08:39:37.2856337Z Evaluating cancel timeout
+2024-09-09T08:39:37.2856363Z Evaluating continue on error
+2024-09-09T08:39:37.2856392Z Evaluating target
+2024-09-09T08:39:37.2858716Z ##[section]Finishing: Prepare job build

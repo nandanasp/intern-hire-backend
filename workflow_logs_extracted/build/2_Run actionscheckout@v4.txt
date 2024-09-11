@@ -1,0 +1,67 @@
+2024-09-09T08:39:48.5806424Z ##[group]Run actions/checkout@v4
+2024-09-09T08:39:48.5806942Z with:
+2024-09-09T08:39:48.5807350Z   repository: madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:48.5808159Z   token: ***
+2024-09-09T08:39:48.5808543Z   ssh-strict: true
+2024-09-09T08:39:48.5808842Z   ssh-user: git
+2024-09-09T08:39:48.5809249Z   persist-credentials: true
+2024-09-09T08:39:48.5809662Z   clean: true
+2024-09-09T08:39:48.5809974Z   sparse-checkout-cone-mode: true
+2024-09-09T08:39:48.5810443Z   fetch-depth: 1
+2024-09-09T08:39:48.5810787Z   fetch-tags: false
+2024-09-09T08:39:48.5811088Z   show-progress: true
+2024-09-09T08:39:48.5811500Z   lfs: false
+2024-09-09T08:39:48.5811835Z   submodules: false
+2024-09-09T08:39:48.5812145Z   set-safe-directory: true
+2024-09-09T08:39:48.5812572Z ##[endgroup]
+2024-09-09T08:39:48.7528041Z Syncing repository: madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:48.7530136Z ##[group]Getting Git version info
+2024-09-09T08:39:48.7531108Z Working directory is '/home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend'
+2024-09-09T08:39:48.7532584Z [command]/usr/bin/git version
+2024-09-09T08:39:48.7533014Z git version 2.46.0
+2024-09-09T08:39:48.7542021Z ##[endgroup]
+2024-09-09T08:39:48.7567013Z Temporarily overriding HOME='/home/runner/work/_temp/ff38491b-185a-4cfd-b610-ddcf72c7629a' before making global git config changes
+2024-09-09T08:39:48.7572116Z Adding repository directory to the temporary git global config as a safe directory
+2024-09-09T08:39:48.7573722Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend
+2024-09-09T08:39:48.7609839Z Deleting the contents of '/home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend'
+2024-09-09T08:39:48.7612924Z ##[group]Initializing the repository
+2024-09-09T08:39:48.7617211Z [command]/usr/bin/git init /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend
+2024-09-09T08:39:48.7677041Z hint: Using 'master' as the name for the initial branch. This default branch name
+2024-09-09T08:39:48.7678132Z hint: is subject to change. To configure the initial branch name to use in all
+2024-09-09T08:39:48.7679818Z hint: of your new repositories, which will suppress this warning, call:
+2024-09-09T08:39:48.7680875Z hint:
+2024-09-09T08:39:48.7681658Z hint: 	git config --global init.defaultBranch <name>
+2024-09-09T08:39:48.7682754Z hint:
+2024-09-09T08:39:48.7683574Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2024-09-09T08:39:48.7684382Z hint: 'development'. The just-created branch can be renamed via this command:
+2024-09-09T08:39:48.7685039Z hint:
+2024-09-09T08:39:48.7685422Z hint: 	git branch -m <name>
+2024-09-09T08:39:48.7686269Z Initialized empty Git repository in /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend/.git/
+2024-09-09T08:39:48.7692859Z [command]/usr/bin/git remote add origin https://github.com/madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:48.7727211Z ##[endgroup]
+2024-09-09T08:39:48.7727909Z ##[group]Disabling automatic garbage collection
+2024-09-09T08:39:48.7731511Z [command]/usr/bin/git config --local gc.auto 0
+2024-09-09T08:39:48.7760591Z ##[endgroup]
+2024-09-09T08:39:48.7761316Z ##[group]Setting up auth
+2024-09-09T08:39:48.7767460Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2024-09-09T08:39:48.7800928Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2024-09-09T08:39:48.8095639Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2024-09-09T08:39:48.8128439Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2024-09-09T08:39:48.8362577Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2024-09-09T08:39:48.8398564Z ##[endgroup]
+2024-09-09T08:39:48.8399392Z ##[group]Fetching the repository
+2024-09-09T08:39:48.8406688Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +16e2c962b7ddc5117688f9c3b05c7dad1cf2194a:refs/remotes/origin/main
+2024-09-09T08:39:49.2565712Z From https://github.com/madangopal16072000/fyle-interview-intern-backend
+2024-09-09T08:39:49.2567450Z  * [new ref]         16e2c962b7ddc5117688f9c3b05c7dad1cf2194a -> origin/main
+2024-09-09T08:39:49.2591351Z ##[endgroup]
+2024-09-09T08:39:49.2592087Z ##[group]Determining the checkout info
+2024-09-09T08:39:49.2593613Z ##[endgroup]
+2024-09-09T08:39:49.2598526Z [command]/usr/bin/git sparse-checkout disable
+2024-09-09T08:39:49.2636863Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2024-09-09T08:39:49.2664617Z ##[group]Checking out the ref
+2024-09-09T08:39:49.2668322Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2024-09-09T08:39:49.2749857Z Switched to a new branch 'main'
+2024-09-09T08:39:49.2753477Z branch 'main' set up to track 'origin/main'.
+2024-09-09T08:39:49.2761281Z ##[endgroup]
+2024-09-09T08:39:49.2795051Z [command]/usr/bin/git log -1 --format='%H'
+2024-09-09T08:39:49.2817572Z '16e2c962b7ddc5117688f9c3b05c7dad1cf2194a'

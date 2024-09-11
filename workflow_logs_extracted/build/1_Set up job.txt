@@ -1,0 +1,28 @@
+2024-09-09T08:39:46.8504911Z Current runner version: '2.319.1'
+2024-09-09T08:39:46.8532962Z ##[group]Operating System
+2024-09-09T08:39:46.8533996Z Ubuntu
+2024-09-09T08:39:46.8534548Z 22.04.4
+2024-09-09T08:39:46.8534980Z LTS
+2024-09-09T08:39:46.8535286Z ##[endgroup]
+2024-09-09T08:39:46.8535674Z ##[group]Runner Image
+2024-09-09T08:39:46.8536187Z Image: ubuntu-22.04
+2024-09-09T08:39:46.8536554Z Version: 20240901.1.0
+2024-09-09T08:39:46.8537572Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20240901.1/images/ubuntu/Ubuntu2204-Readme.md
+2024-09-09T08:39:46.8539153Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20240901.1
+2024-09-09T08:39:46.8540054Z ##[endgroup]
+2024-09-09T08:39:46.8540415Z ##[group]Runner Image Provisioner
+2024-09-09T08:39:46.8540962Z 2.0.384.1
+2024-09-09T08:39:46.8541290Z ##[endgroup]
+2024-09-09T08:39:46.8556687Z ##[group]GITHUB_TOKEN Permissions
+2024-09-09T08:39:46.8558270Z Contents: read
+2024-09-09T08:39:46.8558860Z Metadata: read
+2024-09-09T08:39:46.8559264Z ##[endgroup]
+2024-09-09T08:39:46.8562570Z Secret source: Actions
+2024-09-09T08:39:46.8563163Z Prepare workflow directory
+2024-09-09T08:39:46.9176862Z Prepare all required actions
+2024-09-09T08:39:46.9336013Z Getting action download info
+2024-09-09T08:39:47.2034838Z Download action repository 'actions/checkout@v4' (SHA:692973e3d937129bcbf40652eb9f2f61becf3332)
+2024-09-09T08:39:47.3054776Z Download action repository 'actions/setup-python@v3' (SHA:3542bca2639a428e1796aaa6a2ffef0c0f575566)
+2024-09-09T08:39:47.3794933Z Download action repository 'MishaKav/pytest-coverage-comment@main' (SHA:e8eba130153248c8e2d8f0e9b5aa7cebf77e3dc6)
+2024-09-09T08:39:47.8433593Z Download action repository 'actions/upload-artifact@v4' (SHA:50769540e7f4bd5e21e526ee35c689e35e0d6874)
+2024-09-09T08:39:48.4906527Z Complete job name: build

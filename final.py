@@ -6,7 +6,8 @@ from langchain_community.document_loaders import TextLoader
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_text_splitters import TokenTextSplitter
-from langchain_groq import ChatGroq
+# from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 import time 
 from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -133,7 +134,7 @@ class TestResult:
         texts = text_splitter.split_text(docs[0].page_content)
 
         extractor = prompt | self.llm.with_structured_output(
-            schema=TestResultSchema2,
+            schema=TestResultSchema,
             include_raw=False
         )
         res = extractor.invoke({"context": texts[-4:]})
@@ -141,11 +142,19 @@ class TestResult:
     
 
 if __name__ == '__main__':
-    os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
-    os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
+    # os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
+    # os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
 
     # llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
-    llm = ChatGroq(model="llama3-70b-8192")
+    # llm = ChatGroq(model="llama3-70b-8192")
+    llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    temperature=0,
+    api_key="",
+    # base_url="...",
+    # organization="...",
+    # other params...
+)
     github_repo1 = 'https://github.com/mgs222324/fyle-interview-intern-backend'
     github_repo2 = 'https://github.com/madangopal16072000/fyle-interview-intern-backend'
 

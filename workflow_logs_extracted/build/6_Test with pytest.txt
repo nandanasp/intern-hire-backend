@@ -1,0 +1,71 @@
+2024-09-09T08:41:48.5952573Z ##[group]Run set -o pipefail
+2024-09-09T08:41:48.5952943Z [36;1mset -o pipefail[0m
+2024-09-09T08:41:48.5953674Z [36;1mpytest -vvv -s tests/ --cov --cov-fail-under=80 --junit-xml=test_reports/report.xml --cov-report=term-missing | tee pytest_coverage.txt[0m
+2024-09-09T08:41:48.5978771Z shell: /usr/bin/bash -e {0}
+2024-09-09T08:41:48.5979056Z env:
+2024-09-09T08:41:48.5979351Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:41:48.5979865Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:41:48.5980267Z ##[endgroup]
+2024-09-09T08:41:49.7883294Z ============================= test session starts ==============================
+2024-09-09T08:41:49.7885069Z platform linux -- Python 3.10.14, pytest-6.2.5, py-1.10.0, pluggy-1.0.0 -- /opt/hostedtoolcache/Python/3.10.14/x64/bin/python
+2024-09-09T08:41:49.7886293Z cachedir: .pytest_cache
+2024-09-09T08:41:49.7887577Z rootdir: /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend, configfile: pytest.ini
+2024-09-09T08:41:49.7888968Z plugins: cov-2.12.1
+2024-09-09T08:41:49.8405351Z collecting ... collected 24 items
+2024-09-09T08:41:49.8405802Z 
+2024-09-09T08:41:49.8761620Z tests/principals_test.py::test_get_assignments PASSED
+2024-09-09T08:41:49.8808719Z tests/principals_test.py::test_grade_assignment_draft_assignment PASSED
+2024-09-09T08:41:49.8906534Z tests/principals_test.py::test_grade_assignment PASSED
+2024-09-09T08:41:49.8971922Z tests/principals_test.py::test_regrade_assignment PASSED
+2024-09-09T08:41:49.9014766Z tests/principals_test.py::test_get_teachers PASSED
+2024-09-09T08:41:49.9035485Z tests/principals_test.py::test_ready PASSED
+2024-09-09T08:41:49.9057818Z tests/principals_test.py::test_request_without_X_Principal_header PASSED
+2024-09-09T08:41:49.9101857Z tests/students_test.py::test_get_assignments_student_1 PASSED
+2024-09-09T08:41:49.9137740Z tests/students_test.py::test_get_assignments_student_2 PASSED
+2024-09-09T08:41:49.9164825Z tests/students_test.py::test_post_assignment_null_content PASSED
+2024-09-09T08:41:49.9228855Z tests/students_test.py::test_post_assignment_student_1 PASSED
+2024-09-09T08:41:49.9294063Z tests/students_test.py::test_submit_assignment_student_1 PASSED
+2024-09-09T08:41:49.9329352Z tests/students_test.py::test_assignment_resubmit_error PASSED
+2024-09-09T08:41:49.9394482Z tests/students_test.py::test_edit_assignments_student_1 PASSED
+2024-09-09T08:41:49.9432951Z tests/students_test.py::test_edit_assignments_cross PASSED
+2024-09-09T08:41:49.9474298Z tests/teachers_test.py::test_get_assignments_teacher_1 PASSED
+2024-09-09T08:41:49.9512344Z tests/teachers_test.py::test_get_assignments_teacher_2 PASSED
+2024-09-09T08:41:49.9547575Z tests/teachers_test.py::test_grade_assignment_cross PASSED
+2024-09-09T08:41:49.9572085Z tests/teachers_test.py::test_grade_assignment_bad_grade PASSED
+2024-09-09T08:41:49.9607612Z tests/teachers_test.py::test_grade_assignment_bad_assignment PASSED
+2024-09-09T08:41:49.9642908Z tests/teachers_test.py::test_grade_assignment_draft_assignment PASSED
+2024-09-09T08:41:49.9708219Z tests/teachers_test.py::test_grade_assignment PASSED
+2024-09-09T08:41:49.9760902Z tests/SQL/sql_test.py::test_get_assignments_in_various_states PASSED
+2024-09-09T08:41:50.0262361Z tests/SQL/sql_test.py::test_get_grade_A_assignments_for_teacher_with_max_grading PASSED
+2024-09-09T08:41:50.0263414Z 
+2024-09-09T08:41:50.0264688Z - generated xml file: /home/runner/work/fyle-interview-intern-backend/fyle-interview-intern-backend/test_reports/report.xml -
+2024-09-09T08:41:50.0265612Z 
+2024-09-09T08:41:50.0265929Z ---------- coverage: platform linux, python 3.10.14-final-0 ----------
+2024-09-09T08:41:50.0266493Z Name                                 Stmts   Miss  Cover   Missing
+2024-09-09T08:41:50.0267023Z ------------------------------------------------------------------
+2024-09-09T08:41:50.0267500Z core/__init__.py                        19      0   100%
+2024-09-09T08:41:50.0268252Z core/apis/__init__.py                    0      0   100%
+2024-09-09T08:41:50.0268764Z core/apis/assignments/__init__.py        3      0   100%
+2024-09-09T08:41:50.0269569Z core/apis/assignments/principal.py      22      0   100%
+2024-09-09T08:41:50.0270103Z core/apis/assignments/schema.py         36      0   100%
+2024-09-09T08:41:50.0270623Z core/apis/assignments/student.py        31      0   100%
+2024-09-09T08:41:50.0271138Z core/apis/assignments/teacher.py        22      0   100%
+2024-09-09T08:41:50.0271686Z core/apis/decorators.py                 32      1    97%   43
+2024-09-09T08:41:50.0272231Z core/apis/responses.py                   5      0   100%
+2024-09-09T08:41:50.0272727Z core/apis/teachers/__init__.py           1      0   100%
+2024-09-09T08:41:50.0273244Z core/apis/teachers/principal.py         12      0   100%
+2024-09-09T08:41:50.0273754Z core/apis/teachers/schema.py            11      0   100%
+2024-09-09T08:41:50.0274234Z core/libs/__init__.py                    0      0   100%
+2024-09-09T08:41:50.0274717Z core/libs/assertions.py                 15      0   100%
+2024-09-09T08:41:50.0275337Z core/libs/exceptions.py                 10      3    70%   10-12
+2024-09-09T08:41:50.0275908Z core/libs/helpers.py                    10      0   100%
+2024-09-09T08:41:50.0276405Z core/models/__init__.py                  0      0   100%
+2024-09-09T08:41:50.0276914Z core/models/assignments.py              85      2    98%   35, 98
+2024-09-09T08:41:50.0277435Z core/models/students.py                 10      1    90%   13
+2024-09-09T08:41:50.0278113Z core/models/teachers.py                 14      1    93%   13
+2024-09-09T08:41:50.0278666Z core/server.py                          28      5    82%   39-48
+2024-09-09T08:41:50.0279165Z ------------------------------------------------------------------
+2024-09-09T08:41:50.0279572Z TOTAL                                  366     13    96%
+2024-09-09T08:41:50.0279837Z 
+2024-09-09T08:41:50.0280036Z Required test coverage of 80% reached. Total coverage: 96.45%
+2024-09-09T08:41:50.0280516Z ============================== 24 passed in 0.24s ==============================

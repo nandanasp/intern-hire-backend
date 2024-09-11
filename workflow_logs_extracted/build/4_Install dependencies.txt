@@ -1,0 +1,140 @@
+2024-09-09T08:39:49.4447770Z ##[group]Run python -m pip install --upgrade pip
+2024-09-09T08:39:49.4448556Z [36;1mpython -m pip install --upgrade pip[0m
+2024-09-09T08:39:49.4449230Z [36;1mif [ -f requirements.txt ]; then pip install -r requirements.txt; fi[0m
+2024-09-09T08:39:49.4479205Z shell: /usr/bin/bash -e {0}
+2024-09-09T08:39:49.4479631Z env:
+2024-09-09T08:39:49.4480003Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.14/x64
+2024-09-09T08:39:49.4480764Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.14/x64/lib
+2024-09-09T08:39:49.4481516Z ##[endgroup]
+2024-09-09T08:39:50.1161161Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages (24.2)
+2024-09-09T08:39:50.8062247Z Collecting alembic==1.7.1 (from -r requirements.txt (line 1))
+2024-09-09T08:39:50.8171598Z   Downloading alembic-1.7.1-py3-none-any.whl.metadata (7.0 kB)
+2024-09-09T08:39:50.8380209Z Collecting attrs==21.2.0 (from -r requirements.txt (line 2))
+2024-09-09T08:39:50.8413713Z   Downloading attrs-21.2.0-py2.py3-none-any.whl.metadata (9.1 kB)
+2024-09-09T08:39:50.8788446Z Collecting click==8.0.1 (from -r requirements.txt (line 3))
+2024-09-09T08:39:50.8819944Z   Downloading click-8.0.1-py3-none-any.whl.metadata (3.2 kB)
+2024-09-09T08:39:51.1897625Z Collecting coverage==5.5 (from -r requirements.txt (line 4))
+2024-09-09T08:39:51.1937693Z   Downloading coverage-5.5-cp310-cp310-manylinux1_x86_64.whl.metadata (8.0 kB)
+2024-09-09T08:39:51.2188821Z Collecting Flask==2.0.1 (from -r requirements.txt (line 5))
+2024-09-09T08:39:51.2226007Z   Downloading Flask-2.0.1-py3-none-any.whl.metadata (3.8 kB)
+2024-09-09T08:39:51.2968167Z Collecting Flask-Alembic==2.0.1 (from -r requirements.txt (line 6))
+2024-09-09T08:39:51.3002858Z   Downloading Flask_Alembic-2.0.1-py2.py3-none-any.whl.metadata (988 bytes)
+2024-09-09T08:39:51.3175366Z Collecting Flask-Migrate==3.1.0 (from -r requirements.txt (line 7))
+2024-09-09T08:39:51.3210408Z   Downloading Flask_Migrate-3.1.0-py3-none-any.whl.metadata (3.1 kB)
+2024-09-09T08:39:51.3393839Z Collecting Flask-SQLAlchemy==2.5.1 (from -r requirements.txt (line 8))
+2024-09-09T08:39:51.3423022Z   Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl.metadata (3.1 kB)
+2024-09-09T08:39:51.4531221Z Collecting gevent==21.8.0 (from -r requirements.txt (line 9))
+2024-09-09T08:39:51.4570382Z   Downloading gevent-21.8.0.tar.gz (6.2 MB)
+2024-09-09T08:39:51.5873959Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 47.9 MB/s eta 0:00:00
+2024-09-09T08:39:52.2256483Z   Installing build dependencies: started
+2024-09-09T08:39:55.2414718Z   Installing build dependencies: finished with status 'done'
+2024-09-09T08:39:55.2422112Z   Getting requirements to build wheel: started
+2024-09-09T08:39:59.5786561Z   Getting requirements to build wheel: finished with status 'done'
+2024-09-09T08:39:59.5805991Z   Preparing metadata (pyproject.toml): started
+2024-09-09T08:40:00.3542244Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-09-09T08:40:00.5087518Z Collecting greenlet==1.1.1 (from -r requirements.txt (line 10))
+2024-09-09T08:40:00.5126454Z   Downloading greenlet-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
+2024-09-09T08:40:00.5346535Z Collecting gunicorn==20.1.0 (from -r requirements.txt (line 11))
+2024-09-09T08:40:00.5393815Z   Downloading gunicorn-20.1.0-py3-none-any.whl.metadata (3.8 kB)
+2024-09-09T08:40:00.5774284Z Collecting importlib-resources==5.2.2 (from -r requirements.txt (line 12))
+2024-09-09T08:40:00.5812804Z   Downloading importlib_resources-5.2.2-py3-none-any.whl.metadata (2.9 kB)
+2024-09-09T08:40:00.5920690Z Collecting iniconfig==1.1.1 (from -r requirements.txt (line 13))
+2024-09-09T08:40:00.5947249Z   Downloading iniconfig-1.1.1-py2.py3-none-any.whl.metadata (2.4 kB)
+2024-09-09T08:40:00.6073270Z Collecting itsdangerous==2.0.1 (from -r requirements.txt (line 14))
+2024-09-09T08:40:00.6103307Z   Downloading itsdangerous-2.0.1-py3-none-any.whl.metadata (2.9 kB)
+2024-09-09T08:40:00.6292764Z Collecting Jinja2==3.0.1 (from -r requirements.txt (line 15))
+2024-09-09T08:40:00.6328209Z   Downloading Jinja2-3.0.1-py3-none-any.whl.metadata (3.5 kB)
+2024-09-09T08:40:00.6526570Z Collecting Mako==1.1.5 (from -r requirements.txt (line 16))
+2024-09-09T08:40:00.6594894Z   Downloading Mako-1.1.5-py2.py3-none-any.whl.metadata (2.8 kB)
+2024-09-09T08:40:00.7079168Z Collecting MarkupSafe==2.0.1 (from -r requirements.txt (line 17))
+2024-09-09T08:40:00.7107594Z   Downloading MarkupSafe-2.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (3.2 kB)
+2024-09-09T08:40:00.7556361Z Collecting marshmallow==3.13.0 (from -r requirements.txt (line 18))
+2024-09-09T08:40:00.7588689Z   Downloading marshmallow-3.13.0-py2.py3-none-any.whl.metadata (7.8 kB)
+2024-09-09T08:40:00.7753220Z Collecting marshmallow-enum==1.5.1 (from -r requirements.txt (line 19))
+2024-09-09T08:40:00.7779855Z   Downloading marshmallow_enum-1.5.1-py2.py3-none-any.whl.metadata (2.5 kB)
+2024-09-09T08:40:00.7992634Z Collecting marshmallow-sqlalchemy==0.26.1 (from -r requirements.txt (line 20))
+2024-09-09T08:40:00.8019491Z   Downloading marshmallow_sqlalchemy-0.26.1-py2.py3-none-any.whl.metadata (6.7 kB)
+2024-09-09T08:40:00.8284819Z Collecting packaging==21.0 (from -r requirements.txt (line 21))
+2024-09-09T08:40:00.8319913Z   Downloading packaging-21.0-py3-none-any.whl.metadata (13 kB)
+2024-09-09T08:40:00.8502176Z Collecting pluggy==1.0.0 (from -r requirements.txt (line 22))
+2024-09-09T08:40:00.8529781Z   Downloading pluggy-1.0.0-py2.py3-none-any.whl.metadata (4.3 kB)
+2024-09-09T08:40:00.8743357Z Collecting py==1.10.0 (from -r requirements.txt (line 23))
+2024-09-09T08:40:00.8809506Z   Downloading py-1.10.0-py2.py3-none-any.whl.metadata (2.7 kB)
+2024-09-09T08:40:00.9153086Z Collecting pyparsing==2.4.7 (from -r requirements.txt (line 24))
+2024-09-09T08:40:00.9182530Z   Downloading pyparsing-2.4.7-py2.py3-none-any.whl.metadata (3.6 kB)
+2024-09-09T08:40:00.9820993Z Collecting pytest==6.2.5 (from -r requirements.txt (line 25))
+2024-09-09T08:40:00.9861254Z   Downloading pytest-6.2.5-py3-none-any.whl.metadata (7.5 kB)
+2024-09-09T08:40:01.0093229Z Collecting pytest-cov==2.12.1 (from -r requirements.txt (line 26))
+2024-09-09T08:40:01.0126963Z   Downloading pytest_cov-2.12.1-py2.py3-none-any.whl.metadata (22 kB)
+2024-09-09T08:40:01.3834690Z Collecting SQLAlchemy==1.4.23 (from -r requirements.txt (line 27))
+2024-09-09T08:40:01.3874371Z   Downloading SQLAlchemy-1.4.23.tar.gz (7.7 MB)
+2024-09-09T08:40:01.4568017Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.7/7.7 MB 116.6 MB/s eta 0:00:00
+2024-09-09T08:40:02.1274999Z   Installing build dependencies: started
+2024-09-09T08:40:03.5194832Z   Installing build dependencies: finished with status 'done'
+2024-09-09T08:40:03.5201007Z   Getting requirements to build wheel: started
+2024-09-09T08:40:03.8473953Z   Getting requirements to build wheel: finished with status 'done'
+2024-09-09T08:40:03.8483662Z   Preparing metadata (pyproject.toml): started
+2024-09-09T08:40:04.1489945Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-09-09T08:40:04.1792936Z Collecting toml==0.10.2 (from -r requirements.txt (line 28))
+2024-09-09T08:40:04.1823965Z   Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+2024-09-09T08:40:04.2190312Z Collecting Werkzeug==2.0.1 (from -r requirements.txt (line 29))
+2024-09-09T08:40:04.2244639Z   Downloading Werkzeug-2.0.1-py3-none-any.whl.metadata (4.4 kB)
+2024-09-09T08:40:04.2500289Z Collecting zipp==3.5.0 (from -r requirements.txt (line 30))
+2024-09-09T08:40:04.2539585Z   Downloading zipp-3.5.0-py3-none-any.whl.metadata (2.3 kB)
+2024-09-09T08:40:04.2667278Z Collecting zope.event==4.5.0 (from -r requirements.txt (line 31))
+2024-09-09T08:40:04.2704196Z   Downloading zope.event-4.5.0-py2.py3-none-any.whl.metadata (4.3 kB)
+2024-09-09T08:40:04.3981505Z Collecting zope.interface==5.4.0 (from -r requirements.txt (line 32))
+2024-09-09T08:40:04.4025508Z   Downloading zope.interface-5.4.0.tar.gz (249 kB)
+2024-09-09T08:40:04.4477526Z   Installing build dependencies: started
+2024-09-09T08:40:05.8524378Z   Installing build dependencies: finished with status 'done'
+2024-09-09T08:40:05.8530025Z   Getting requirements to build wheel: started
+2024-09-09T08:40:06.0238466Z   Getting requirements to build wheel: finished with status 'done'
+2024-09-09T08:40:06.0247526Z   Preparing metadata (pyproject.toml): started
+2024-09-09T08:40:06.2020215Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2024-09-09T08:40:06.2752210Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages (from gevent==21.8.0->-r requirements.txt (line 9)) (65.5.0)
+2024-09-09T08:40:06.4038042Z Downloading alembic-1.7.1-py3-none-any.whl (208 kB)
+2024-09-09T08:40:06.4119131Z Downloading attrs-21.2.0-py2.py3-none-any.whl (53 kB)
+2024-09-09T08:40:06.4169101Z Downloading click-8.0.1-py3-none-any.whl (97 kB)
+2024-09-09T08:40:06.4226840Z Downloading coverage-5.5-cp310-cp310-manylinux1_x86_64.whl (238 kB)
+2024-09-09T08:40:06.4307608Z Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+2024-09-09T08:40:06.4366533Z Downloading Flask_Alembic-2.0.1-py2.py3-none-any.whl (10 kB)
+2024-09-09T08:40:06.4439647Z Downloading Flask_Migrate-3.1.0-py3-none-any.whl (20 kB)
+2024-09-09T08:40:06.4486656Z Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl (17 kB)
+2024-09-09T08:40:06.4539361Z Downloading greenlet-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (148 kB)
+2024-09-09T08:40:06.4594056Z Downloading gunicorn-20.1.0-py3-none-any.whl (79 kB)
+2024-09-09T08:40:06.4652301Z Downloading importlib_resources-5.2.2-py3-none-any.whl (27 kB)
+2024-09-09T08:40:06.4696924Z Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+2024-09-09T08:40:06.4739294Z Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+2024-09-09T08:40:06.4797883Z Downloading Jinja2-3.0.1-py3-none-any.whl (133 kB)
+2024-09-09T08:40:06.4864003Z Downloading Mako-1.1.5-py2.py3-none-any.whl (75 kB)
+2024-09-09T08:40:06.4916218Z Downloading MarkupSafe-2.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (30 kB)
+2024-09-09T08:40:06.4969222Z Downloading marshmallow-3.13.0-py2.py3-none-any.whl (47 kB)
+2024-09-09T08:40:06.5018574Z Downloading marshmallow_enum-1.5.1-py2.py3-none-any.whl (4.2 kB)
+2024-09-09T08:40:06.5066886Z Downloading marshmallow_sqlalchemy-0.26.1-py2.py3-none-any.whl (15 kB)
+2024-09-09T08:40:06.5118001Z Downloading packaging-21.0-py3-none-any.whl (40 kB)
+2024-09-09T08:40:06.5163995Z Downloading pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+2024-09-09T08:40:06.5211373Z Downloading py-1.10.0-py2.py3-none-any.whl (97 kB)
+2024-09-09T08:40:06.5262476Z Downloading pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+2024-09-09T08:40:06.5311309Z Downloading pytest-6.2.5-py3-none-any.whl (280 kB)
+2024-09-09T08:40:06.5373534Z Downloading pytest_cov-2.12.1-py2.py3-none-any.whl (20 kB)
+2024-09-09T08:40:06.5419723Z Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+2024-09-09T08:40:06.5476688Z Downloading Werkzeug-2.0.1-py3-none-any.whl (288 kB)
+2024-09-09T08:40:06.5546755Z Downloading zipp-3.5.0-py3-none-any.whl (5.7 kB)
+2024-09-09T08:40:06.5596102Z Downloading zope.event-4.5.0-py2.py3-none-any.whl (6.8 kB)
+2024-09-09T08:40:06.5841709Z Building wheels for collected packages: gevent, SQLAlchemy, zope.interface
+2024-09-09T08:40:06.5850314Z   Building wheel for gevent (pyproject.toml): started
+2024-09-09T08:41:12.3357744Z   Building wheel for gevent (pyproject.toml): still running...
+2024-09-09T08:41:41.8670712Z   Building wheel for gevent (pyproject.toml): finished with status 'done'
+2024-09-09T08:41:41.8723960Z   Created wheel for gevent: filename=gevent-21.8.0-cp310-cp310-linux_x86_64.whl size=6308794 sha256=69458efde538c22ac2f7b0616f6bef8c4bca0c123a48856c46c68f0828b00fff
+2024-09-09T08:41:41.8726066Z   Stored in directory: /home/runner/.cache/pip/wheels/2a/86/ea/4bc06ac039093587abc9f268c87c60323deeeee308c051f0fb
+2024-09-09T08:41:41.8768733Z   Building wheel for SQLAlchemy (pyproject.toml): started
+2024-09-09T08:41:43.0661273Z   Building wheel for SQLAlchemy (pyproject.toml): finished with status 'done'
+2024-09-09T08:41:43.0677292Z   Created wheel for SQLAlchemy: filename=SQLAlchemy-1.4.23-cp310-cp310-linux_x86_64.whl size=1542973 sha256=676d8630e0af4d416e0e8f2e345098aecfb91210f9ddfc49f3ef6f3ce8d465db
+2024-09-09T08:41:43.0679156Z   Stored in directory: /home/runner/.cache/pip/wheels/b1/83/74/6276352424e42f57b3878fb724f70cbd684af64bd4f5f5a04f
+2024-09-09T08:41:43.0716479Z   Building wheel for zope.interface (pyproject.toml): started
+2024-09-09T08:41:43.7671200Z   Building wheel for zope.interface (pyproject.toml): finished with status 'done'
+2024-09-09T08:41:43.7676235Z   Created wheel for zope.interface: filename=zope.interface-5.4.0-cp310-cp310-linux_x86_64.whl size=251281 sha256=c5b5ff030f9f25745917a8289955c1ef0e4dd2881d665e95932d79228df7b276
+2024-09-09T08:41:43.7678041Z   Stored in directory: /home/runner/.cache/pip/wheels/21/a9/8b/0bfc5594d8e109d5b25d6b69e0cff14d09d93e3522dcb16d2b
+2024-09-09T08:41:43.7705859Z Successfully built gevent SQLAlchemy zope.interface
+2024-09-09T08:41:43.8528457Z Installing collected packages: iniconfig, zope.interface, zope.event, zipp, Werkzeug, toml, pyparsing, py, pluggy, marshmallow, MarkupSafe, itsdangerous, importlib-resources, gunicorn, greenlet, coverage, click, attrs, SQLAlchemy, packaging, marshmallow-enum, Mako, Jinja2, gevent, pytest, marshmallow-sqlalchemy, Flask, alembic, pytest-cov, Flask-SQLAlchemy, Flask-Migrate, Flask-Alembic
+2024-09-09T08:41:46.2217015Z Successfully installed Flask-2.0.1 Flask-Alembic-2.0.1 Flask-Migrate-3.1.0 Flask-SQLAlchemy-2.5.1 Jinja2-3.0.1 Mako-1.1.5 MarkupSafe-2.0.1 SQLAlchemy-1.4.23 Werkzeug-2.0.1 alembic-1.7.1 attrs-21.2.0 click-8.0.1 coverage-5.5 gevent-21.8.0 greenlet-1.1.1 gunicorn-20.1.0 importlib-resources-5.2.2 iniconfig-1.1.1 itsdangerous-2.0.1 marshmallow-3.13.0 marshmallow-enum-1.5.1 marshmallow-sqlalchemy-0.26.1 packaging-21.0 pluggy-1.0.0 py-1.10.0 pyparsing-2.4.7 pytest-6.2.5 pytest-cov-2.12.1 toml-0.10.2 zipp-3.5.0 zope.event-4.5.0 zope.interface-5.4.0
