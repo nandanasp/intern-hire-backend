@@ -20,11 +20,11 @@ class StatusEnum(str, Enum):
     SELECTED = 'SELECTED'
     REJECTED = 'REJECTED'
 
-def add_submission(timestamp, full_name, email, contact_number, github_repo_link, time_taken, college_name, year_of_passing, resume_link ):
+def add_submission(timestamp, full_name, email, contact_number, github_repo_link, time_taken, college_name, year_of_passing, resume_link, current_hiring_eligibility, reviews):
     query = {"email":email}
     matched_documents = list(collection.find(query))
     if len(matched_documents) == 0:
-        candidate = create_candidate(email=email, full_name=full_name, contact_number=contact_number, college_name=college_name, year_of_passing=year_of_passing)
+        candidate = create_candidate(email=email, full_name=full_name, contact_number=contact_number, college_name=college_name, year_of_passing=year_of_passing, current_hiring_eligibility = current_hiring_eligibility, reviews=reviews)
         candidate_id = candidate["id"]
         append_submission_to_candidate(candidate_id = candidate_id, submitted_timestamp = timestamp, github_repo_link = github_repo_link, time_taken = time_taken, resume_link = resume_link)
     else:
@@ -33,7 +33,7 @@ def add_submission(timestamp, full_name, email, contact_number, github_repo_link
         append_submission_to_candidate(candidate_id = candidate_id, submitted_timestamp = timestamp, github_repo_link = github_repo_link, time_taken = time_taken, resume_link = resume_link)
     
 
-def create_candidate(email, full_name, contact_number, college_name, year_of_passing):
+def create_candidate(email, full_name, contact_number, college_name, year_of_passing, current_hiring_eligibility, reviews):
     candidate = {
         "id" : 'cnd{0}'.format(generate_random_string(string_length=10)),
         "email" : str(email),
@@ -41,7 +41,9 @@ def create_candidate(email, full_name, contact_number, college_name, year_of_pas
         "contact_number" : str(contact_number),
         "college_name" : str(college_name),
         "year_of_passing" :  str(year_of_passing),
-        "submissions" : []
+        "submissions" : [],
+        "current_hiring_eligibility": current_hiring_eligibility,
+        "reviews" : reviews
     }
     inserted_candidate = collection.insert_one(candidate)
     return candidate
@@ -58,3 +60,19 @@ def append_submission_to_candidate(candidate_id, submitted_timestamp, github_rep
     }
 
     collection.update_one({"id":candidate_id}, {"$push": {"submissions": submission}})
+
+def find_submission_by_github_repo_link(github_repo_link):
+    matched_submission = collection.find_one({"submissions.github_repo_link": github_repo_link})
+    if matched_submission is None:
+        return None
+    else:
+        return matched_submission
+
+def find_submission_by_video_link(video_link):
+    matched_submission = collection.find_one({"submissions.video_link": video_link})
+    if matched_submission is None:
+        return None
+    else:
+        return matched_submission
+
+find_submission_by_github_repo_link("https://github.com/5h15h1r/fyle-interview-intern-backend")
