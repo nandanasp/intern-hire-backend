@@ -3,10 +3,10 @@ from datetime import datetime
 import xlrd
 import pandas as pd
 import openpyxl
+from flask import request
 
 from . import db
 from flask import Flask
-from . import dummy
 app = Flask(__name__)
 
 @app.route("/upload")
