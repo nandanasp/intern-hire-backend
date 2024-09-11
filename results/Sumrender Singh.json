@@ -1,0 +1,117 @@
+{
+    "resume": {
+        "name": "Sumrender Singh",
+        "languages": null,
+        "skills": [
+            "Typescript",
+            "C++",
+            "AWS",
+            "Flask",
+            "SQL",
+            "Git",
+            "Angular",
+            "NestJS",
+            "NextJS",
+            "React Native",
+            "Express",
+            "Firebase"
+        ],
+        "experience": [
+            {
+                "company": "Codinova Tech",
+                "position": "Full Stack Engineering Intern",
+                "work_done": "Worked on creating a customer support endpoint leveraging MS Graph API, lambda functions and email integration\n\u2013 Worked on Restful API for admin showing user analytics like number of active users, total users\n\u2013 Integrated API with Admin Dashboard created with Angular\n\u2013 Worked with Angular, NestJS, Typescript, MongoDB, Gitlab, Postman"
+            },
+            {
+                "company": "Kogniti",
+                "position": "Full Stack Developer Intern",
+                "work_done": "Worked on creating responsive React components using Material UI, and integrated with the backend system\n\u2013 Created REST API endpoints along with authorization, and authentication with expressJS and MongoDB"
+            }
+        ],
+        "projects": [
+            {
+                "name": "The Happy Store",
+                "summary": "Android application created with Typescript, React Native, Expo, NestJS\n\u2013 Backend built using NestJS, MongoDB, Typescript and hosted on render.com\n\u2013 Payment integration using razorpay gateway\n\u2013 Authentication is OTP-based using fast2sms service",
+                "tech_used": [
+                    "Typescript",
+                    "React Native",
+                    "Expo",
+                    "NestJS",
+                    "MongoDB",
+                    "Razorpay",
+                    "fast2sms"
+                ]
+            },
+            {
+                "name": "Spotify Playlist Generator",
+                "summary": "Desktop application created with ElectronJS, ReactJS, and ExpressJS\n\u2013 Creates an online playlist of your offline songs, present on your device without manually entering them one by one\n\u2013 Uses OAuth for authentication and requires permission to read and modify your playlists",
+                "tech_used": [
+                    "ElectronJS",
+                    "ReactJS",
+                    "ExpressJS",
+                    "OAuth"
+                ]
+            },
+            {
+                "name": "Booklists",
+                "summary": "Blog site created to write about all the books that I will read this year.\n\u2013 Built with Python, Flask, SQLite",
+                "tech_used": [
+                    "Python",
+                    "Flask",
+                    "SQLite"
+                ]
+            },
+            {
+                "name": "BikeChain",
+                "summary": "Decentralised bike rental system\n\u2013 Smart Contract hosted on Goerli Test network, frontend application created with React",
+                "tech_used": [
+                    "React",
+                    "Smart Contract"
+                ]
+            }
+        ],
+        "education": [
+            {
+                "course_name": "Bachelor\u2019s Degree",
+                "college_or_uni": "Army Institute of Technology, Pune",
+                "start_year": 2020,
+                "end_year": 2024,
+                "cgpa_or_percentage": "8.9"
+            },
+            {
+                "course_name": "Class 12th",
+                "college_or_uni": "Army Public School Jodhpur",
+                "start_year": 2019,
+                "end_year": null,
+                "cgpa_or_percentage": "95.3%"
+            },
+            {
+                "course_name": "Class 10th",
+                "college_or_uni": "Army Public School Jodhpur",
+                "start_year": 2017,
+                "end_year": null,
+                "cgpa_or_percentage": "95.0%"
+            }
+        ],
+        "emails": [
+            "sumrenders@gmail.com"
+        ],
+        "urls": [
+            "https://github.com/sumrender/playlist-gen",
+            "https://sumrender.vercel.app",
+            "https://github.com/sumrender",
+            "https://www.linkedin.com/in/sumrendersingh/",
+            "https://github.com/sumrender/shopping-app",
+            "https://booklists.pythonanywhere.com"
+        ],
+        "mobile_numbers": [
+            "9352529834"
+        ]
+    },
+    "resume_review": {
+        "skill_match": 4,
+        "relevant_experience": 4,
+        "summary": "Sumrender Singh is a strong candidate for the Front End Development Internship. He has a solid understanding of frontend technologies like TypeScript, Angular, React, and React Native. His experience with NestJS and ExpressJS demonstrates his backend knowledge, which is valuable for full-stack development. He has also worked on projects involving containerization tools like Docker, which is a plus. His experience with Git and version control is evident from his work on various projects. However, his experience with AngularJS might be less relevant for this internship, which focuses on Angular 11+. Overall, Sumrender's skills and experience align well with the requirements of the internship.",
+        "overall_rating": 4
+    }
+}

@@ -47,6 +47,7 @@ pip-delete-this-directory.txt
 instance/
 
 # Environments
+.env
 .venv
 env/
 venv/

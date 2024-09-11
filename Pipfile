@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+xlrd = "*"
+pandas = "*"
+openpyxl = "*"
+flask = "*"
+pymongo = "*"
+flask-cors = "*"
+python-dotenv = "*"
+langchain = "*"
+langchain-openai = "*"
+langchain-ollama = "*"
+langchain-community = "*"
+pypdf = "*"
+pdfx = "*"
+pydantic = "*"
+langchain-google-genai = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
