@@ -66,3 +66,6 @@ XDG_CACHE_HOME/
 
 # Folder config file
 [Dd]esktop.ini
+
+workflow_logs.zip
+workflow_logs_extracted

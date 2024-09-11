@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS  
 from dotenv import load_dotenv
 from resume_reviewer import get_resume_review
+from code_coverage import get_code_coverage
 
 load_dotenv()
 app = Flask(__name__)
@@ -19,6 +20,10 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
 @app.route('/resume', methods=['GET'])
 def resume():
     return jsonify({'data': get_resume_review('resume.pdf')}), 200
+
+@app.route('/code-coverage', methods=['GET'])
+def code_coverage():
+    return jsonify({'data': get_code_coverage()})
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
