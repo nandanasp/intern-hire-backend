@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/upload")
 def hello_world():
-    xlStr = dummy.d
+    xlStr = "dummy_string"
     xlDecoded = base64.b64decode(xlStr)
     xlFile = open('temp.xlsx', 'wb')
     xlFile.write(xlDecoded)
@@ -76,4 +76,12 @@ def hello_world():
 
 
     
- 
+@app.route("/submissions",  methods = ['GET'])
+def list_submissions():
+    if request.method == 'GET':
+        all_submissions = []
+        candidates = db.get_all_candidates()
+        for candidate in candidates:
+            for submission in candidate["submissions"]:
+                all_submissions.append(submission)
+        return all_submissions

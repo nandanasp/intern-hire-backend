@@ -43,7 +43,8 @@ def create_candidate(email, full_name, contact_number, college_name, year_of_pas
         "year_of_passing" :  str(year_of_passing),
         "submissions" : [],
         "current_hiring_eligibility": current_hiring_eligibility,
-        "reviews" : reviews
+        "reviews" : reviews,
+        "current_status": "SUBMITTED"
     }
     inserted_candidate = collection.insert_one(candidate)
     return candidate
@@ -74,5 +75,9 @@ def find_submission_by_video_link(video_link):
         return None
     else:
         return matched_submission
+
+def get_all_candidates():
+    all_candidates = collection.find()
+    return list(all_candidates)
 
 find_submission_by_github_repo_link("https://github.com/5h15h1r/fyle-interview-intern-backend")
