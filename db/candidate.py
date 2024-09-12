@@ -1,6 +1,6 @@
 from .setup import db 
 from marshmallow import Schema, fields, ValidationError
-from bson import ObjectId
+from bson import json_util, ObjectId
 
 candidates = db.candidates 
 
@@ -27,14 +27,16 @@ class CandidateSchema(Schema):
 candidate_schema = CandidateSchema()
 
 def get_candidate(candidate_id):
-    candidate = candidates.find_one({"email": 'cshekharmshr2407@gmail.com'})
+    candidate = candidates.find_one({"_id": ObjectId(candidate_id)})
+    if candidate:
+        candidate = json_util.dumps(candidate)
     return candidate
 
 
 
 def update_status(candidate_id, status):
     try:
-        result = candidates.update_one({'email': 'cshekharmshr2407@gmail.com'}, {'$set' : {
+        result = candidates.update_one({"_id": ObjectId(candidate_id)}, {'$set' : {
             'submission.0.status': status
         }})
 
@@ -53,7 +55,7 @@ def update_candidate(candidate_id, **kwargs):
         update_fields = {f'submission.0.{key}': value for key, value in kwargs.items()}
 
         result = candidates.update_one(
-            {'email': 'cshekharmshr2407@gmail.com'},
+            {"_id": ObjectId(candidate_id)},
             {'$set': update_fields}
         )
 
