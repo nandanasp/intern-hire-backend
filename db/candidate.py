@@ -34,7 +34,7 @@ def get_candidate(candidate_id):
 
 def update_status(candidate_id, status):
     try:
-        result = candidates.update_one({'_id': ObjectId(candidate_id)}, {'$set' : {
+        result = candidates.update_one({'email': 'cshekharmshr2407@gmail.com'}, {'$set' : {
             'submission.0.status': status
         }})
 
@@ -48,13 +48,12 @@ def update_status(candidate_id, status):
 
 
 def update_candidate(candidate_id, **kwargs):
-
     try:
         # Construct the update dictionary
         update_fields = {f'submission.0.{key}': value for key, value in kwargs.items()}
 
         result = candidates.update_one(
-            {'_id': ObjectId(candidate_id)},
+            {'email': 'cshekharmshr2407@gmail.com'},
             {'$set': update_fields}
         )
 

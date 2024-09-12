@@ -2,13 +2,14 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts.prompt import PromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_google_genai import ChatGoogleGenerativeAI
+from pdf_utils import download_file_from_google_drive
 import json
 import re
 import pdfx
 from dotenv import load_dotenv
 load_dotenv()
 
-pdf_path = 'resume/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7.pdf'
+pdf_url = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
 job_desc = """
     Backend Development Work From Home Internship
     Selected intern's day-to-day responsibilities include:
@@ -145,20 +146,17 @@ def llm_review_resume_on_job_desc(json_resume, job_desc):
     parsed_response = extract_and_parse_json(res.content) 
     return parsed_response
 
-
-def get_resume_review(pdf_path: str):
+def get_resume_review(pdf_url: str, data = {}):
     print("resume reviewer function called!")
+    pdf_path = download_file_from_google_drive(pdf_url)
     parsed_resume = llm_convert_pdf_resume_to_json(pdf_path)
     resume_review = llm_review_resume_on_job_desc(parsed_resume, job_desc)
-
-    obj = {
-        "resume": parsed_resume,
-        "resume_review": resume_review
-    }
+    data['resume'] = parsed_resume
+    data['resume_review'] = resume_review
     # write_to_file('results/' + parsed_resume["name"] + '.json', json.dumps(obj, indent=4))
     print("resume reviewer terminated!")
-    return obj
+    return data
 
 if __name__ == "__main__":
-    res = get_resume_review(pdf_path)
+    res = get_resume_review(pdf_url)
     print(res)

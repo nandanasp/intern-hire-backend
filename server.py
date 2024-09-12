@@ -25,10 +25,12 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
 
 @app.route('/resume', methods=['GET'])
 def resume():
+    # need to update this
     return jsonify({'data': get_resume_review('resume.pdf')}), 200
 
 @app.route('/code-coverage', methods=['GET'])
 def code_coverage():
+    # need to update this
     return jsonify({'data': get_code_coverage()})
 
 @app.route('/upload', methods=['POST'])
@@ -80,25 +82,23 @@ def upload_file():
 @app.route('/candidate-review/<candidate_id>', methods=['POST'])
 def candidate_review(candidate_id):
     # 1. fetch candidate data from mongodb, data
-
     candidate = get_candidate(candidate_id)
+    print(candidate)
+    print('\n---------------------------------------------------------\n')
 
     submission = candidate['submission'][0]
-
-
     resume_link = submission['resume_link']
     repo_link = submission['repo_link']
     new_candidate_id = candidate['_id']
 
-    # 2. update candidate status to review_started
-    update_status(new_candidate_id, 'REVIEW_STARTED')
-
-
-    # 3. start run_data_job([data])
-
-    run_single_review(new_candidate_id, resume_link, repo_link)
-    # 4. update_candidate_details and change statust to review_done
-    return ""
+    # 3. start run_data_job([data]) and update status
+    llm_res = run_single_review(new_candidate_id, resume_link, repo_link)
+    print("llm_res: ", llm_res)
+    print('\n---------------------------------------------------------\n')
+    # 4. update candidate details and change statust to review_done
+    update_candidate(candidate_id, **llm_res)
+    print('everything ran')
+    return llm_res
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

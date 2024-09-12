@@ -26,35 +26,29 @@ def run_data_job(data):
     return arr
 
         
-        
+def code_coverage(candidate_id, repo_link, data = {}):
+    tr = TestResult(llm=llm, github_repo=repo_link)
+    status = tr.get_status()
+
+    if status == 'success':
+        tr.process()
+        tro = tr.get_summary()
+        coverage = tro.coverage
+        data['code_coverage_score'] = coverage
+    else:
+        data['code_coverage_description'] = 'Github Action Workflow run Failed!'
+    return data
 
 
 def run_single_review(candidate_id, resume_link, repo_link):
     resume_link = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
     repo_link = "https://github.com/madangopal16072000/fyle-interview-intern-backend"
 
-    tr = TestResult(llm=llm, github_repo=repo_link)
-
-    status = tr.get_status()
-
-    print(status)
-
-    if status == 'success':
-        tr.process()
-
-        tro = tr.get_summary()
-
-        coverage = tro.coverage
-
-        print(coverage)
-
-        update_status(candidate_id, 'AI_REVIEWED')
-
-        update_candidate(candidate_id, code_coverage_score=coverage)
-    else:
-        update_status(candidate_id, 'AI_REVIEW_FAILED')
-
-        update_candidate(candidate_id, code_coverage_description = 'Github Action Workflow run Failed!')
+    update_status(candidate_id, 'REVIEW_STARTED')
+    data = {}
+    data = code_coverage(candidate_id, repo_link, data)
+    data = get_resume_review(resume_link, data)
+    return data
 
 if __name__ == '__main__':
     print('data job')
