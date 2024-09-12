@@ -57,9 +57,13 @@ class TestResult:
         url = f"https://api.github.com/repos/{owner_repo}/actions/runs"
 
         response = requests.get(url, headers=headers)
-        resp_js = response.json()
-        self.run_status = resp_js['workflow_runs'][0]['conclusion']
-        self.logs_url = resp_js['workflow_runs'][0]['logs_url']
+
+        if response.status_code == 200:
+            resp_js = response.json()
+            self.run_status = resp_js['workflow_runs'][0]['conclusion']
+            self.logs_url = resp_js['workflow_runs'][0]['logs_url']
+        else:
+            print(f"Something went wrong")
 
     def extract_owner_repo(self):
         parts = self.github_repo.rstrip('/').split('/')

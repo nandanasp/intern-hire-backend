@@ -14,12 +14,24 @@ from rq import Queue
 # db imports
 from db.candidate import get_candidate, update_candidate, update_status
 from worker import get_code_coverage
+from resume_worker import get_resume_review
+
 load_dotenv()
 
 REDIS_URL = os.getenv('REDIS_URL')
-connection = redis.from_url(REDIS_URL, ssl=True,
-    ssl_cert_reqs=None)
+connection = redis.from_url('redis://localhost:6379/0')
 queue = Queue("llms", connection=connection)
+# Test the connection
+try:
+    # Ping the Redis server
+    response = connection.ping()
+    if response:
+        print("Connected to Redis successfully!")
+    else:
+        print("Failed to connect to Redis.")
+except redis.ConnectionError as e:
+    print(f"Redis connection error: {e}")
+
 
 app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
@@ -100,8 +112,10 @@ async def candidate_review(candidate_id):
     repo_link = submission['repo_link']
     new_candidate_id = candidate['_id']
 
-    queue.enqueue(get_code_coverage, repo_link)
+    queue.enqueue(get_code_coverage, "https://github.com/madangopal16072000/fyle-interview-intern-backend")
 
+    queue.enqueue(get_resume_review, "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view")
+    
     return ""
     # # 3. start run_data_job([data]) and update status
     # update_status(candidate_id, 'REVIEW_STARTED')
