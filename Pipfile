@@ -19,6 +19,9 @@ pypdf = "*"
 pdfx = "*"
 pydantic = "*"
 langchain-google-genai = "*"
+flask-mail = "*"
+mailjet-rest = "*"
+mailersend = "*"
 
 [dev-packages]
 
