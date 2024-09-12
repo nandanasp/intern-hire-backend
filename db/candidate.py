@@ -1,6 +1,7 @@
 from .setup import db 
 from marshmallow import Schema, fields, ValidationError
 from bson import json_util, ObjectId
+from pymongo.errors import OperationFailure
 
 candidates = db.candidates 
 
@@ -66,8 +67,21 @@ def update_candidate(candidate_id, **kwargs):
 
 
 def get_candidates_by_job_id(job_id):
-    res = candidates.find({
-        'submission.job_id': job_id
-    })
+    try:
+        candidate_list = []
+        cursor = candidates.find({'submission.job_id': job_id})
 
-    return res
+        # Process the fetched data
+        for document in cursor:
+            new_dict = {
+                'candidate_id': document['_id'],
+                'resume_link': document['submission'][0]['resume_link'],
+                'repo_link': document['submission'][0]['repo_link']
+            }
+
+            candidate_list.append(new_dict)
+
+    except OperationFailure as e:
+        print(f"Failed to execute the operation: {e}")
+
+    return candidate_list

@@ -1,6 +1,5 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts.prompt import PromptTemplate
-from langchain_ollama import ChatOllama
 from langchain_google_genai import ChatGoogleGenerativeAI
 from pdf_utils import download_file_from_google_drive
 import json
@@ -8,6 +7,7 @@ import re
 import pdfx
 import asyncio
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
 load_dotenv()
 
 pdf_url = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
@@ -24,9 +24,11 @@ job_desc = """
     7. Taking ownership of product features from conception to implementation, testing deployment, and support
 """
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash-latest",
-    temperature=0)
+# llm = ChatGoogleGenerativeAI(
+#     model="gemini-1.5-flash-latest",
+#     temperature=0)
+
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 def extract_urls_email_mobile(pdf_path: str):
     pdf = pdfx.PDFx(pdf_path)
@@ -158,7 +160,7 @@ def llm_review_resume_on_job_desc(json_resume, job_desc):
     parsed_response = extract_and_parse_json(res.content) 
     return parsed_response
 
-async def get_resume_review(pdf_url: str, data = {}):
+def get_resume_review(pdf_url: str, data = {}):
     print("resume reviewer function called!")
     pdf_path = download_file_from_google_drive(pdf_url)
     parsed_resume = llm_convert_pdf_resume_to_json(pdf_path)

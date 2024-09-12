@@ -7,12 +7,16 @@ from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_text_splitters import TokenTextSplitter
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+
+# llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
+llm = ChatOpenAI(model="gpt-4o-mini")
 
 headers = {
     'Authorization': f'Bearer {GITHUB_TOKEN}',
@@ -27,7 +31,7 @@ extracted_folder = 'workflow_logs_extracted'
 
 class TestResultSchema(BaseModel):
     """Results of Test Execution"""
-    coverage: float = Field(description="coverage percentage")
+    coverage: float = Field(description="exact coverage percentage not rounded off")
     required_coverage: float = Field(description="Required percentage of coverage")
     total_tests: int = Field(description="Total number of tests")
     passed_tests: int = Field(description="Number of passed tests")

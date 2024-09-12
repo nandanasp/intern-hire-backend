@@ -12,10 +12,10 @@ import redis
 from rq import Queue
 
 # db imports
-from db.candidate import get_candidate, update_candidate, update_status
+from db.candidate import get_candidate, update_candidate, update_status, get_candidates_by_job_id
 from test_coverage_worker import get_code_coverage
 from resume_worker import get_resume_review
-from worker import run_single_review
+from worker import run_single_review, run_bulk_review
 
 load_dotenv()
 
@@ -49,7 +49,7 @@ def test(candidate_id):
     return get_candidate(candidate_id)
 
 @app.route('/candidate-review/<candidate_id>', methods=['POST'])
-async def candidate_review(candidate_id):
+def candidate_review(candidate_id):
     # 1. fetch candidate data from mongodb, data
     candidate = get_candidate(candidate_id)
     print(type(candidate))
@@ -77,10 +77,17 @@ async def candidate_review(candidate_id):
     # print('everything ran')
     # return llm_res
 
-@app.route('/candidate-review/<job_id>', methods=['POST'])
-async def candidate_review_bulk(candidate_id):
-
+@app.route('/candidate-review/bulk/<job_id>', methods=['POST'])
+async def candidate_review_bulk(job_id):
     
+    candidate_list = get_candidates_by_job_id(job_id)
+    print(len(candidate_list))
+    print(candidate_list)
+
+    queue.enqueue(run_bulk_review, candidate_list)
+    return ""
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
 
