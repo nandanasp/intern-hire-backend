@@ -21,6 +21,9 @@ pydantic = "*"
 langchain-google-genai = "*"
 marshmallow = "*"
 flask-pymongo = "*"
+flask-mail = "*"
+mailjet-rest = "*"
+mailersend = "*"
 
 [dev-packages]
 
