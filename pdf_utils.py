@@ -11,12 +11,12 @@ def get_google_drive_download_url(drive_url):
         raise ValueError("The provided URL is not a valid Google Drive URL")
     
     download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    return download_url
+    return download_url, file_id
 
-def download_file_from_google_drive(drive_url, destination):
-    download_url = get_google_drive_download_url(drive_url)
+def download_file_from_google_drive(drive_url):
+    download_url, id = get_google_drive_download_url(drive_url)
     response = requests.get(download_url)
-    
+    destination = 'resume/' + id + '.pdf'
     if response.status_code == 200:
         with open(destination, 'wb') as f:
             f.write(response.content)
@@ -29,4 +29,6 @@ def download_file_from_google_drive(drive_url, destination):
 
 
 if __name__ == '__main__':
-    print("yoyo")
+    url = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
+    resume_path = download_file_from_google_drive(url)
+    print(resume_path)

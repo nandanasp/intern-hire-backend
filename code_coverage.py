@@ -138,9 +138,8 @@ class TestResult:
         return res
     
 
-def get_code_coverage():
-    github_repo1 = 'https://github.com/mgs222324/fyle-interview-intern-backend'
-    tr = TestResult(llm, github_repo=github_repo1)
+def get_code_coverage(github_url):
+    tr = TestResult(llm, github_repo=github_url)
     # call get status to status of github action run 
     status = tr.get_status()
     # call process to process logs
@@ -150,6 +149,6 @@ def get_code_coverage():
     return res
 
 if __name__ == '__main__':
-    res = get_code_coverage()
+    res = get_code_coverage("https://github.com/madangopal16072000/fyle-interview-intern-backend")
     print(res)
     

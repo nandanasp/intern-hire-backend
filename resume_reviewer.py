@@ -8,15 +8,18 @@ import pdfx
 from dotenv import load_dotenv
 load_dotenv()
 
-pdf_path = 'resume.pdf'
+pdf_path = 'resume/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7.pdf'
 job_desc = """
-    Front End Development Work From Home Internship
+    Backend Development Work From Home Internship
     Selected intern's day-to-day responsibilities include:
 
-    1. Working on frontend modules using technologies like TypeScript, HTML5, SCSS, AngularJS, Angular 11+, etc.
-    2. Working on code versioning and containerization tools such as Git, Docker, etc.
-    3. Working on interesting technical challenges in a fast-paced environment
-    4. Taking ownership of product features from conception to implementation, testing deployment, and support.
+    1. Working on backend modules using technologies like Python, flask framework, etc.
+    2. Working on building and maintaining efficient thoroughly tested RESTful APIs
+    3. Working on relational databases such as PostgreSQL, etc.
+    4. Working on writing tests, fixing broken tests for any new feature (pytest)
+    5. Working on code versioning and containerization tools such as Git, Docker, etc.
+    6. Working on interesting technical challenges in a fast-paced environment
+    7. Taking ownership of product features from conception to implementation, testing deployment, and support
 """
 
 llm = ChatGoogleGenerativeAI(
@@ -153,7 +156,9 @@ def get_resume_review(pdf_path: str):
         "resume_review": resume_review
     }
     # write_to_file('results/' + parsed_resume["name"] + '.json', json.dumps(obj, indent=4))
+    print("resume reviewer terminated!")
     return obj
 
 if __name__ == "__main__":
-    get_resume_review(pdf_path)
+    res = get_resume_review(pdf_path)
+    print(res)

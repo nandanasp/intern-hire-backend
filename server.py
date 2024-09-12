@@ -62,7 +62,6 @@ def upload_file():
 
         try:
             data = excel_to_json(file_path)
-            # run_data_job(data)
 
             return jsonify({
                 'message': 'File successfully processed',
