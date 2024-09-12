@@ -65,7 +65,7 @@ async def candidate_review(candidate_id):
 
     # queue.enqueue(get_resume_review, "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view")
     
-    queue.enqueue(run_single_review, new_candidate_id, resume_link, repo_link)
+    queue.enqueue(run_single_review, new_candidate_id, resume_link, repo_link, candidate)
 
     return ""
     # # 3. start run_data_job([data]) and update status
