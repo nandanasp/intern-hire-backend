@@ -13,7 +13,7 @@ from rq import Queue
 
 # db imports
 from db.candidate import get_candidate, update_candidate, update_status
-from worker import get_code_coverage
+from test_coverage_worker import get_code_coverage
 from resume_worker import get_resume_review
 
 load_dotenv()
