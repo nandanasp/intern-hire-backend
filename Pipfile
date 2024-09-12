@@ -19,6 +19,8 @@ pypdf = "*"
 pdfx = "*"
 pydantic = "*"
 langchain-google-genai = "*"
+marshmallow = "*"
+flask-pymongo = "*"
 
 [dev-packages]
 

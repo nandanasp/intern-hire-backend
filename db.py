@@ -58,3 +58,26 @@ def append_submission_to_candidate(candidate_id, submitted_timestamp, github_rep
     }
 
     collection.update_one({"id":candidate_id}, {"$push": {"submissions": submission}})
+
+
+from marshmallow import Schema, fields
+
+class CandidateSchema(Schema):
+    fullname = fields.Str()
+    email = fields.Str()
+    contact_number = fields.Str()
+    github_repo_link = fields.Str()
+    test_screenshot_link = fields.Str()
+    video_introduction_link = fields.Str()
+    timestamp = fields.Str()
+    college_year = fields.Str()
+    year_of_passing = fields.Str()
+    time_to_complete_task = fields.Str()
+    resume_link = fields.Str() 
+    available_for_full_internship_link = fields.Str() 
+    ai_used_by_candidate = fields.Str()
+    application_state = fields.Str()
+    slack_reference = fields.Str()
+    graded_by = fields.Str()
+    
+
