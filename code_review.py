@@ -56,15 +56,15 @@ async def get_code_review(challenge_description, parent_repo_url, submission_rep
 
     Based on the provided differences, evaluate the submission and provide a JSON output with scores for the following criteria (0-10 scale):
 
-    implementation_closeness: How closely the submission matches the expected implementation.
+    implementation_closeness: How closely the submission matches the expected implementation. Check if all the points mentioned in challenge description is implemented in the git diff. If the git diff is almost the same or entirely different from challenge description, set this to 0.
     code_cleanliness: The overall cleanliness of the code, including formatting and readability.
     best_practices: Adherence to coding best practices.
     edge_cases: The handling of edge cases in the implementation.
 
-    Make sure the generated output can be parsed as a JSON.
+    Output only the JSON and make sure the generated output can be parsed as a JSON.
     """
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a code reviewer."},
             {"role": "user", "content": prompt},
