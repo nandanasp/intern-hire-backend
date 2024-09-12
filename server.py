@@ -15,6 +15,7 @@ from rq import Queue
 from db.candidate import get_candidate, update_candidate, update_status
 from test_coverage_worker import get_code_coverage
 from resume_worker import get_resume_review
+from worker import run_single_review
 
 load_dotenv()
 
@@ -51,21 +52,23 @@ def test(candidate_id):
 async def candidate_review(candidate_id):
     # 1. fetch candidate data from mongodb, data
     candidate = get_candidate(candidate_id)
-    print(candidate)
+    print(type(candidate))
     print('\n---------------------------------------------------------\n')
 
     submission = candidate['submission'][0]
+
     resume_link = submission['resume_link']
     repo_link = submission['repo_link']
     new_candidate_id = candidate['_id']
 
-    queue.enqueue(get_code_coverage, "https://github.com/madangopal16072000/fyle-interview-intern-backend")
+    # queue.enqueue(get_code_coverage, new_candidate_id, "https://github.com/madangopal16072000/fyle-interview-intern-backend")
 
-    queue.enqueue(get_resume_review, "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view")
+    # queue.enqueue(get_resume_review, "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view")
     
+    queue.enqueue(run_single_review, new_candidate_id, resume_link, repo_link)
+
     return ""
     # # 3. start run_data_job([data]) and update status
-    # update_status(candidate_id, 'REVIEW_STARTED')
     # llm_res = await run_single_review(new_candidate_id, resume_link, repo_link)
     # print("llm_res: ", llm_res)
     # print('\n---------------------------------------------------------\n')

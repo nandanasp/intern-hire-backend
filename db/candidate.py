@@ -28,8 +28,6 @@ candidate_schema = CandidateSchema()
 
 def get_candidate(candidate_id):
     candidate = candidates.find_one({"_id": ObjectId(candidate_id)})
-    if candidate:
-        candidate = json_util.dumps(candidate)
     return candidate
 
 

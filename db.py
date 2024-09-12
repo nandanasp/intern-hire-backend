@@ -60,7 +60,7 @@ def append_submission_to_candidate(candidate_id, submitted_timestamp, github_rep
     collection.update_one({"id":candidate_id}, {"$push": {"submissions": submission}})
 
 
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, ValidationError
 
 class CandidateSchema(Schema):
     fullname = fields.Str()
@@ -79,5 +79,18 @@ class CandidateSchema(Schema):
     application_state = fields.Str()
     slack_reference = fields.Str()
     graded_by = fields.Str()
-    
 
+
+
+
+def insert_candidate(**kwargs):
+    schema = CandidateSchema()
+
+    try:
+        user_data = {"name": "Alice", "age": 30, "city": "New York"}
+        validated_data = schema.load(user_data)
+        # Insert into MongoDB after validation
+        collection.insert_one(validated_data)
+        print("Data inserted successfully.")
+    except ValidationError as err:
+        print("Validation error:", err.messages)
