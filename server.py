@@ -7,6 +7,7 @@ from code_coverage import get_code_coverage
 from excel_worker import excel_to_json
 from data_job import run_data_job, run_single_review
 import time
+import asyncio
 
 # db imports
 from db.candidate import get_candidate, update_candidate, update_status
@@ -80,7 +81,7 @@ def upload_file():
         return jsonify({'error': 'Invalid file type. Please upload an Excel file.'}), 400
 
 @app.route('/candidate-review/<candidate_id>', methods=['POST'])
-def candidate_review(candidate_id):
+async def candidate_review(candidate_id):
     # 1. fetch candidate data from mongodb, data
     candidate = get_candidate(candidate_id)
     print(candidate)
@@ -92,7 +93,8 @@ def candidate_review(candidate_id):
     new_candidate_id = candidate['_id']
 
     # 3. start run_data_job([data]) and update status
-    llm_res = run_single_review(new_candidate_id, resume_link, repo_link)
+    update_status(candidate_id, 'REVIEW_STARTED')
+    llm_res = await run_single_review(new_candidate_id, resume_link, repo_link)
     print("llm_res: ", llm_res)
     print('\n---------------------------------------------------------\n')
     # 4. update candidate details and change statust to review_done

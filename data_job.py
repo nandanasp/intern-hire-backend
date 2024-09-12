@@ -4,7 +4,7 @@ from pdf_utils import download_file_from_google_drive
 from dotenv import load_dotenv
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
-from db.candidate import update_status, update_candidate
+import asyncio
 
 os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
@@ -26,7 +26,7 @@ def run_data_job(data):
     return arr
 
         
-def code_coverage(candidate_id, repo_link, data = {}):
+async def get_code_coverage(candidate_id, repo_link, data = {}):
     tr = TestResult(llm=llm, github_repo=repo_link)
     status = tr.get_status()
 
@@ -40,14 +40,24 @@ def code_coverage(candidate_id, repo_link, data = {}):
     return data
 
 
-def run_single_review(candidate_id, resume_link, repo_link):
+async def get_code_summary(resume_link, data = {}):
+    return data
+
+async def run_single_review(candidate_id, resume_link, repo_link):
     resume_link = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
     repo_link = "https://github.com/madangopal16072000/fyle-interview-intern-backend"
-
-    update_status(candidate_id, 'REVIEW_STARTED')
     data = {}
-    data = code_coverage(candidate_id, repo_link, data)
-    data = get_resume_review(resume_link, data)
+    
+    data_coverage, data_resume, data_summary = await asyncio.gather(
+        get_code_coverage(candidate_id, repo_link, data),
+        get_resume_review(resume_link, data),
+        get_code_summary(resume_link, data)
+    )
+
+    data.update(data_coverage)
+    data.update(data_resume)
+    data.update(data_summary)
+    
     return data
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ from pdf_utils import download_file_from_google_drive
 import json
 import re
 import pdfx
+import asyncio
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -146,7 +147,7 @@ def llm_review_resume_on_job_desc(json_resume, job_desc):
     parsed_response = extract_and_parse_json(res.content) 
     return parsed_response
 
-def get_resume_review(pdf_url: str, data = {}):
+async def get_resume_review(pdf_url: str, data = {}):
     print("resume reviewer function called!")
     pdf_path = download_file_from_google_drive(pdf_url)
     parsed_resume = llm_convert_pdf_resume_to_json(pdf_path)
