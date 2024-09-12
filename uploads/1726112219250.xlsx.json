@@ -1,0 +1,38 @@
+[
+    {
+        "timestamp": "2024-01-12T12:59:19.153000",
+        "email": "harshith.chundurij@gmail.com",
+        "full_name": "Harshith Naresh Chunduri",
+        "contact_number": 8919091531,
+        "github_repository_link": "https://github.com/Harshith-19/fyle-interview-intern-backend",
+        "test_screenshot_link": "https://drive.google.com/open?id=1-CzJXZLiDePo_ct0XSYJIccv4K65DlG1",
+        "time_to_complete_task": "4-8 hours",
+        "video_introduction_link": "https://drive.google.com/open?id=16C2H2cJQ7T95-fOsSQN3lgoD_iXUe1Ct",
+        "college_name": "Indian Institute of Technology, Bhilai",
+        "year_of_passing": 2024,
+        "resume_link": "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view",
+        "available_for_full_time_internship": "Yes, I am available",
+        "ai_used_by_candidate": null,
+        "application_state": "Offer Sent",
+        "slack_reference": "https://fylein.slack.com/archives/C04EG0GG4Q3/p1705050570966689?thread_ts=1705048246.942449&cid=C04EG0GG4Q3",
+        "graded_by": "Kirti"
+    },
+    {
+        "timestamp": "2024-01-12T13:34:15.537000",
+        "email": "avy2121231@sicsr.ac.in",
+        "full_name": "Avnish Yadav",
+        "contact_number": 7757825633,
+        "github_repository_link": "https://github.com/ianishyadav103/fyle-assignment.git",
+        "test_screenshot_link": "https://drive.google.com/open?id=1S2MGP_qgQJqJQg2UxMgq41HWm15x5gyO",
+        "time_to_complete_task": "2-4 hours",
+        "video_introduction_link": "https://drive.google.com/open?id=10dWIVUKfE-PWlcGc2gh8G8cq71iaVHeI",
+        "college_name": " Symbiosis Institute of Computer Science and Research",
+        "year_of_passing": 2024,
+        "resume_link": "https://drive.google.com/open?id=1ZbECDeLTpl53hhCyESxGYT6o7D1HbKrc",
+        "available_for_full_time_internship": "Yes, I am available",
+        "ai_used_by_candidate": null,
+        "application_state": "Rejected",
+        "slack_reference": "https://fylein.slack.com/archives/C04EG0GG4Q3/p1705055953081029?thread_ts=1705055908.223379&cid=C04EG0GG4Q3",
+        "graded_by": "Kirti"
+    }
+]
