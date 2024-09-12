@@ -48,8 +48,12 @@ async def run_single_review(candidate_id, resume_link, repo_link):
 
     update_status(candidate_id, 'REVIEW_STARTED_TESTING')
 
-    resume_link = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
-    repo_link = "https://github.com/madangopal16072000/fyle-interview-intern-backend"
+    # resume_link = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
+    # repo_link = "https://github.com/madangopal16072000/fyle-interview-intern-backend"
+
+    print(resume_link)
+    print(repo_link)
+    
     data = {}
     
     data_coverage, data_resume, data_summary = await asyncio.gather(
@@ -61,7 +65,8 @@ async def run_single_review(candidate_id, resume_link, repo_link):
     data.update(data_coverage)
     data.update(data_resume)
     data.update(data_summary)
-    
+    data['status'] = 'AI_REVIEWED'
+
     update_candidate(candidate_id, **data)
 
 # if __name__ == '__main__':

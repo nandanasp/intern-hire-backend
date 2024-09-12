@@ -63,3 +63,11 @@ def update_candidate(candidate_id, **kwargs):
             print('no document found with given id')
     except Exception as e:
         print(f"Error: {e}")
+
+
+def get_candidates_by_job_id(job_id):
+    res = candidates.find({
+        'submission.job_id': job_id
+    })
+
+    return res

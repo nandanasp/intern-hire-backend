@@ -77,6 +77,10 @@ async def candidate_review(candidate_id):
     # print('everything ran')
     # return llm_res
 
+@app.route('/candidate-review/<job_id>', methods=['POST'])
+async def candidate_review_bulk(candidate_id):
+
+    
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
 
