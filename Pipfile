@@ -24,6 +24,8 @@ flask-mail = "*"
 mailjet-rest = "*"
 mailersend = "*"
 flask = {extras = ["async"], version = "*"}
+rq = "*"
+redis = "*"
 
 [dev-packages]
 

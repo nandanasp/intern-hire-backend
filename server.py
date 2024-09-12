@@ -8,11 +8,19 @@ from excel_worker import excel_to_json
 from data_job import run_data_job, run_single_review
 import time
 import asyncio
+import redis 
+from rq import Queue
 
 # db imports
 from db.candidate import get_candidate, update_candidate, update_status
-
+from worker import get_code_coverage
 load_dotenv()
+
+REDIS_URL = os.getenv('REDIS_URL')
+connection = redis.from_url(REDIS_URL, ssl=True,
+    ssl_cert_reqs=None)
+queue = Queue("llms", connection=connection)
+
 app = Flask(__name__)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
@@ -92,15 +100,18 @@ async def candidate_review(candidate_id):
     repo_link = submission['repo_link']
     new_candidate_id = candidate['_id']
 
-    # 3. start run_data_job([data]) and update status
-    update_status(candidate_id, 'REVIEW_STARTED')
-    llm_res = await run_single_review(new_candidate_id, resume_link, repo_link)
-    print("llm_res: ", llm_res)
-    print('\n---------------------------------------------------------\n')
-    # 4. update candidate details and change statust to review_done
-    update_candidate(candidate_id, **llm_res)
-    print('everything ran')
-    return llm_res
+    queue.enqueue(get_code_coverage, repo_link)
+
+    return ""
+    # # 3. start run_data_job([data]) and update status
+    # update_status(candidate_id, 'REVIEW_STARTED')
+    # llm_res = await run_single_review(new_candidate_id, resume_link, repo_link)
+    # print("llm_res: ", llm_res)
+    # print('\n---------------------------------------------------------\n')
+    # # 4. update candidate details and change statust to review_done
+    # update_candidate(candidate_id, **llm_res)
+    # print('everything ran')
+    # return llm_res
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
