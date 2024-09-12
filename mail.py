@@ -79,7 +79,7 @@ def send_email(recipient_email: str, is_acceptance: bool):
     return res
 
 if __name__ == "__main__":
-    recipient_email = "sumrender.s@fyle.in"
+    recipient_email = "devendra.r@fyle.in"
     is_acceptance = False
 
     result = send_email(recipient_email, is_acceptance)
