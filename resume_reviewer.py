@@ -147,7 +147,7 @@ def llm_review_resume_on_job_desc(json_resume, job_desc):
     parsed_response = extract_and_parse_json(res.content) 
     return parsed_response
 
-async def get_resume_review(pdf_url: str, data = {}):
+def get_resume_review(pdf_url: str, data = {}):
     try:
         print("Resume reviewer function called!")
         pdf_path = download_file_from_google_drive(pdf_url)

@@ -36,7 +36,7 @@ def get_code_summary(repo_link, data = {}):
 
 def run_single_review(candidate_id, resume_link, repo_link):
 
-    update_status(candidate_id, 'REVIEW_STARTED_TESTING')
+    update_status(candidate_id, 'ongoing_ai_review')
     
     data = {}
     

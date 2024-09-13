@@ -73,7 +73,7 @@ def candidate_review(candidate_id):
 
 
 @app.route('/candidate-review/bulk/<job_id>', methods=['POST'])
-async def candidate_review_bulk(job_id):
+def candidate_review_bulk(job_id):
     
     candidate_list = get_candidates_by_job_id(job_id)
     print(len(candidate_list))
