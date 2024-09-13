@@ -45,6 +45,10 @@ if not os.path.exists(UPLOAD_FOLDER):
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
 
+@app.route("/", methods=['GET'])
+def hello():
+    return "hello"
+
 @app.route('/candidates/<candidate_id>', methods=['GET'])
 def test(candidate_id):
     return get_candidate(candidate_id)
