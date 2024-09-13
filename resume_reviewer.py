@@ -120,23 +120,34 @@ def llm_convert_pdf_resume_to_json(pdf_path: str):
 def llm_review_resume_on_job_desc(json_resume, job_desc):
     resume = json.dumps(json_resume)
     parse_template = """
-    Imagine you are an expert at reviewing resume. Given a job description and resume details,
-    I want you to give me a JSON object which I can pass to another function.
-    The JSON object should contain the following properties: 
-    1. skill_match (Score out of 5 whether the candidate has the skills we need for the job.)
-    2. relevant_experience (Score out of whether their past work or projects is relevant to the job, like preferring candidates with web app experience over machine learning experience if we’re hiring for backend roles.)
-    3. summary (Objective summary of the candidate, showing whether he is fit or not for the job along with proofs)
-    4. overall_rating (Overall rating out of 5, where 5 is best fit.)
+        Imagine you are an expert at reviewing resumes. Given a job description and resume details, I want you to give me a JSON object which I can pass to another function. 
 
-    The job description is 
-    ```{job_desc}```.
-    
-    The candidate details are {resume}.
+        The JSON object should contain the following properties:
+        - resume_review_parameters_summary (contains detailed analysis):
+        1. skill_match: 
+            - rating: A number out of 10. Give more score if skills match the job description.
+            - reason: Provide a reason for the rating.
+        2. work_experience: 
+            - rating: A number out of 10. Give more score if the candidate has relevant experience based on the job description.
+            - reason: Provide a reason for the rating.
+        3. project_quality: 
+            - rating: A number out of 10.
+            - reason: Provide a reason for the rating.
 
-    \nYou should give me JSON output without any other text.
-    \nI repeat, do not give any extra sentence, word or character in the output apart from the JSON.
-    Your output should start with `{{` and end with `}}`
+        - resume_review_overall_score: A number out of 10, based on the above resume_review_parameters_summary.
+
+        - resume_review_overall_summary: An objective summary of whether the candidate is fit for the job or not. Include anything that stands out about the candidate.
+
+        The job description is:
+        ```{job_desc}```.
+
+        The candidate details are: {resume}.
+
+        You should give me JSON output without any other text.  
+        I repeat, do not give any extra sentence, word, or character in the output apart from the JSON.  
+        Your output should start with `{{` and end with `}}`.
     """
+    
     parse_prompt_template = PromptTemplate(
     input_variables=["resume", "job_desc"],
     template=parse_template, 
@@ -222,7 +233,9 @@ def get_resume_review_sync(pdf_url: str, data = {}):
 
 
 if __name__ == "__main__":
-    arr = ["https://drive.google.com/open?id=1zBqEdYjypU6zPpBrh5mO-bp2YSlQQmLW"]
-    res = get_resume_review_sync(arr[0])
+    arr = ["https://drive.google.com/open?id=1zBqEdYjypU6zPpBrh5mO-bp2YSlQQmLW",
+           "https://drive.google.com/file/d/1m_A1ykz-8-qkN_QQDn6K9dc_7AQZMV9i/view?usp=drive_link"
+           ]
+    res = get_resume_review_sync(arr[1])
     print(res)
 

@@ -69,3 +69,4 @@ XDG_CACHE_HOME/
 
 workflow_logs.zip
 workflow_logs_extracted
+dump.rdb
