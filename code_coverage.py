@@ -51,7 +51,8 @@ class TestResultSchema2(BaseModel):
     total_tests: int = Field(description="Total number of tests")
     passed_tests: int = Field(description="Number of passed tests")
     failed_tests: int = Field(description="Total number of tests failed")
-
+    summary: str = Field(description="Detailed Summary of tests results",
+                         example="The test results show that all 24 tests have passed. The coverage report shows that 96.45% of the code has been covered by the tests. The required coverage percentage was 80%, which has been reached. The missing lines are mainly in the exception handling and assignment models.")
 
 class TestResult:
     def __init__(self, llm, github_repo) -> None:
@@ -135,7 +136,7 @@ class TestResult:
         texts = text_splitter.split_text(docs[0].page_content)
 
         extractor = prompt | self.llm.with_structured_output(
-            schema=TestResultSchema,
+            schema=TestResultSchema2,
             include_raw=False
         )
         res = extractor.invoke({"context": texts[-4:]})
