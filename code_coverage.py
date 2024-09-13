@@ -31,7 +31,7 @@ extracted_folder = 'workflow_logs_extracted'
 
 class TestResultSchema(BaseModel):
     """Results of Test Execution"""
-    coverage: float = Field(description="exact coverage percentage not rounded off")
+    coverage: float = Field(description="exact coverage percentage not rounded off, make sure values are in percentage")
     required_coverage: float = Field(description="Required percentage of coverage")
     total_tests: int = Field(description="Total number of tests")
     passed_tests: int = Field(description="Number of passed tests")
@@ -153,6 +153,6 @@ def get_code_coverage(github_url):
     return res
 
 if __name__ == '__main__':
-    res = get_code_coverage("https://github.com/madangopal16072000/fyle-interview-intern-backend")
+    res = get_code_coverage("https://github.com/mgs222324/fyle-interview-intern-backend")
     print(res)
     
