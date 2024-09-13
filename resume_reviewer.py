@@ -1,5 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts.prompt import PromptTemplate
+from langchain_ollama import ChatOllama
 from langchain_google_genai import ChatGoogleGenerativeAI
 from pdf_utils import download_file_from_google_drive
 import json
@@ -7,7 +8,6 @@ import re
 import pdfx
 import asyncio
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
 load_dotenv()
 
 pdf_url = "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view"
@@ -24,11 +24,9 @@ job_desc = """
     7. Taking ownership of product features from conception to implementation, testing deployment, and support
 """
 
-# llm = ChatGoogleGenerativeAI(
-#     model="gemini-1.5-flash-latest",
-#     temperature=0)
-
-llm = ChatOpenAI(model="gpt-4o-mini")
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash-latest",
+    temperature=0)
 
 def extract_urls_email_mobile(pdf_path: str):
     pdf = pdfx.PDFx(pdf_path)
@@ -122,34 +120,23 @@ def llm_convert_pdf_resume_to_json(pdf_path: str):
 def llm_review_resume_on_job_desc(json_resume, job_desc):
     resume = json.dumps(json_resume)
     parse_template = """
-            Imagine you are an expert at reviewing resumes. Given a job description and resume details, I want you to give me a JSON object which I can pass to another function. 
+    Imagine you are an expert at reviewing resume. Given a job description and resume details,
+    I want you to give me a JSON object which I can pass to another function.
+    The JSON object should contain the following properties: 
+    1. skill_match (Score out of 5 whether the candidate has the skills we need for the job.)
+    2. relevant_experience (Score out of whether their past work or projects is relevant to the job, like preferring candidates with web app experience over machine learning experience if we’re hiring for backend roles.)
+    3. summary (Objective summary of the candidate, showing whether he is fit or not for the job along with proofs)
+    4. overall_rating (Overall rating out of 5, where 5 is best fit.)
 
-            The JSON object should contain the following properties:
-            - resume_review_parameters_summary (contains detailed analysis):
-            1. skill_match: 
-                - rating: A number out of 10. Give more score if skills match the job description.
-                - reason: Provide a reason for the rating.
-            2. work_experience: 
-                - rating: A number out of 10. Give more score if the candidate has relevant experience based on the job description.
-                - reason: Provide a reason for the rating.
-            3. project_quality: 
-                - rating: A number out of 10.
-                - reason: Provide a reason for the rating.
-
-            - resume_review_overall_score: A number out of 10, based on the above resume_review_parameters_summary.
-
-            - resume_review_overall_summary: An objective summary of whether the candidate is fit for the job or not. Include anything that stands out about the candidate.
-
-            The job description is:
-            ```{job_desc}```.
-
-            The candidate details are: {resume}.
-
-            You should give me JSON output without any other text.  
-            I repeat, do not give any extra sentence, word, or character in the output apart from the JSON.  
-            Your output should start with `{{` and end with `}}`.
-        """
+    The job description is 
+    ```{job_desc}```.
     
+    The candidate details are {resume}.
+
+    \nYou should give me JSON output without any other text.
+    \nI repeat, do not give any extra sentence, word or character in the output apart from the JSON.
+    Your output should start with `{{` and end with `}}`
+    """
     parse_prompt_template = PromptTemplate(
     input_variables=["resume", "job_desc"],
     template=parse_template, 
@@ -160,17 +147,82 @@ def llm_review_resume_on_job_desc(json_resume, job_desc):
     parsed_response = extract_and_parse_json(res.content) 
     return parsed_response
 
-def get_resume_review(pdf_url: str, data = {}):
-    print("resume reviewer function called!")
-    pdf_path = download_file_from_google_drive(pdf_url)
-    parsed_resume = llm_convert_pdf_resume_to_json(pdf_path)
-    resume_review = llm_review_resume_on_job_desc(parsed_resume, job_desc)
-    data['resume'] = parsed_resume
-    data['resume_review'] = resume_review
-    # write_to_file('results/' + parsed_resume["name"] + '.json', json.dumps(obj, indent=4))
-    print("resume reviewer terminated!")
-    return data
+async def get_resume_review(pdf_url: str, data = {}):
+    try:
+        print("Resume reviewer function called!")
+        pdf_path = download_file_from_google_drive(pdf_url)
+        
+        # Assuming these functions will throw exceptions if errors occur
+        parsed_resume = llm_convert_pdf_resume_to_json(pdf_path)
+        resume_review = llm_review_resume_on_job_desc(parsed_resume, job_desc)
+        
+        # Populate data with parsed resume and review
+        data['resume'] = parsed_resume
+        data['resume_review'] = resume_review
+        
+        print("Resume reviewer terminated!")
+        return data
+    except Exception as e:
+        print(f"Error in get_resume_review_sync for URL {pdf_url}: {e}")
+        
+        # Return the empty object with the specified structure
+        return {
+            "resume_review_parameters_summary": {
+                "skill_match": {
+                    "rating": 0,
+                    "reason": ""
+                },
+                "work_experience": {
+                    "rating": 0,
+                    "reason": ""
+                },
+                "project_quality": {
+                    "rating": 0,
+                    "reason": ""
+                }
+            }
+        }
+
+def get_resume_review_sync(pdf_url: str, data = {}):
+    try:
+        print("Resume reviewer function called!")
+        pdf_path = download_file_from_google_drive(pdf_url)
+        
+        # Assuming these functions will throw exceptions if errors occur
+        parsed_resume = llm_convert_pdf_resume_to_json(pdf_path)
+        resume_review = llm_review_resume_on_job_desc(parsed_resume, job_desc)
+        
+        # Populate data with parsed resume and review
+        data['resume'] = parsed_resume
+        data['resume_review'] = resume_review
+        
+        print("Resume reviewer terminated!")
+        return data
+    except Exception as e:
+        print(f"Error in get_resume_review_sync for URL {pdf_url}: {e}")
+        
+        # Return the empty object with the specified structure
+        return {
+            "resume_review_parameters_summary": {
+                "skill_match": {
+                    "rating": 0,
+                    "reason": ""
+                },
+                "work_experience": {
+                    "rating": 0,
+                    "reason": ""
+                },
+                "project_quality": {
+                    "rating": 0,
+                    "reason": ""
+                }
+            }
+        }
+
+
 
 if __name__ == "__main__":
-    res = get_resume_review(pdf_url)
+    arr = ["https://drive.google.com/open?id=1zBqEdYjypU6zPpBrh5mO-bp2YSlQQmLW"]
+    res = get_resume_review_sync(arr[0])
     print(res)
+
