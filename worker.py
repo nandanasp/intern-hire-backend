@@ -7,6 +7,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from db.candidate import update_status, update_candidate, update_final_status
 from time import sleep
 
+load_dotenv()
 os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
 from code_coverage import TestResult
