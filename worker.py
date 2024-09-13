@@ -4,13 +4,13 @@ from pdf_utils import download_file_from_google_drive
 from dotenv import load_dotenv
 import os
 from langchain_google_genai import ChatGoogleGenerativeAI
-from db.candidate import update_status, update_candidate
+from db.candidate import update_status, update_candidate, update_final_status
 from time import sleep
 
 os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
 from code_coverage import TestResult
-
+from code_review import get_review
         
 def get_code_coverage(candidate_id, repo_link, data = {}):
     tr = TestResult(llm=llm, github_repo=repo_link)
@@ -28,7 +28,10 @@ def get_code_coverage(candidate_id, repo_link, data = {}):
     return data
 
 
-def get_code_summary(resume_link, data = {}):
+def get_code_summary(repo_link, data = {}):
+    res = get_review(repo_link)
+    data['code_review'] = res
+    print(res)
     return data
 
 def run_single_review(candidate_id, resume_link, repo_link):
@@ -40,7 +43,7 @@ def run_single_review(candidate_id, resume_link, repo_link):
     data_coverage = get_code_coverage(candidate_id, repo_link, data) 
 
     data_resume = get_resume_review(resume_link, data)
-    data_summary = get_code_summary(resume_link, data)
+    data_summary = get_code_summary(repo_link, data)
 
     data.update(data_coverage)
     data.update(data_resume)
@@ -48,7 +51,7 @@ def run_single_review(candidate_id, resume_link, repo_link):
     data['status'] = 'AI_REVIEWED'
 
     update_candidate(candidate_id, **data)
-
+    update_final_status(candidate_id, 'ai_reviewed')
 
 def run_bulk_review(candidate_list):
     for candidate in candidate_list:

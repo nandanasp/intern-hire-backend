@@ -85,3 +85,17 @@ def get_candidates_by_job_id(job_id):
         print(f"Failed to execute the operation: {e}")
 
     return candidate_list
+
+def update_final_status(candidate_id, status):
+    try:
+        result = candidates.update_one({"_id": ObjectId(candidate_id)}, {'$set' : {
+            'current_status': status
+        }})
+
+        # Check if any document was updated
+        if result.matched_count > 0:
+            print("document updated successfully")
+        else:
+            print("no document found with given id")
+    except Exception as e:
+        print(f"Error : {e}")

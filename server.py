@@ -16,6 +16,7 @@ from db.candidate import get_candidate, update_candidate, update_status, get_can
 from test_coverage_worker import get_code_coverage
 from resume_worker import get_resume_review
 from worker import run_single_review, run_bulk_review
+from mail_worker import send_email, send_email_bulk
 
 load_dotenv()
 
@@ -60,22 +61,16 @@ def candidate_review(candidate_id):
     resume_link = submission['resume_link']
     repo_link = submission['repo_link']
     new_candidate_id = candidate['_id']
-
-    # queue.enqueue(get_code_coverage, new_candidate_id, "https://github.com/madangopal16072000/fyle-interview-intern-backend")
-
-    # queue.enqueue(get_resume_review, "https://drive.google.com/file/d/1WQuS8nWNHHRPyGQs5cx7e2ttBEgbmLa7/view")
     
     queue.enqueue(run_single_review, new_candidate_id, resume_link, repo_link)
 
-    return ""
-    # # 3. start run_data_job([data]) and update status
-    # llm_res = await run_single_review(new_candidate_id, resume_link, repo_link)
-    # print("llm_res: ", llm_res)
-    # print('\n---------------------------------------------------------\n')
-    # # 4. update candidate details and change statust to review_done
-    # update_candidate(candidate_id, **llm_res)
-    # print('everything ran')
-    # return llm_res
+    res = {
+        'message': 'REVIEW_TASK_ENQUEUED',
+        'status': 'SUCCESS'
+    }
+
+    return jsonify(res), 200
+
 
 @app.route('/candidate-review/bulk/<job_id>', methods=['POST'])
 async def candidate_review_bulk(job_id):
@@ -85,8 +80,46 @@ async def candidate_review_bulk(job_id):
     print(candidate_list)
 
     queue.enqueue(run_bulk_review, candidate_list)
-    return ""
+    res = {
+        'message': 'REVIEW_TASK_ENQUEUED',
+        'status': 'SUCCESS'
+    }
 
+    return jsonify(res), 200
+
+
+@app.route('/send_email', methods=['POST'])
+def send_mail():
+    res = request.get_json()
+
+    data = res['data']
+
+    recipient_email = data['recipient_email']
+
+    status = data['status']
+
+    queue.enqueue(send_email, recipient_email, status)
+
+    res = {
+        'message': 'EMAIL_TASK_ENQUEUED',
+        'status': 'SUCCESS'
+    }
+
+    return jsonify(res), 200
+
+@app.route('/send_email/bulk', methods = ['POST'])
+def send_mail_bulk():
+    data = request.get_json()
+
+    mail_list = data['data']['mail_list']
+
+    queue.enqueue(send_email_bulk, mail_list)
+    res = {
+        'message': 'EMAIL_TASK_ENQUEUED',
+        'status': 'SUCCESS'
+    }
+
+    return jsonify(res), 200
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)

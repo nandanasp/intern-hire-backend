@@ -1,14 +1,20 @@
 from mailersend import emails
 from dotenv import load_dotenv
 import os
+import redis
+from rq import Worker, Queue, Connection
+from time import sleep 
 
+# Redis connection
 load_dotenv()
+
+redis_conn = redis.Redis(host='localhost', port=6379, db=0)
 # set `MAILERSEND_API_KEY`` in .env
-def send_email(recipient_email: str, is_acceptance: bool):
+def send_email(recipient_email: str, status: str):
     mailer = emails.NewEmail(os.getenv('MAILERSEND_API_KEY'))
 
-    def get_email_content(is_acceptance: bool):
-        if is_acceptance:
+    def get_email_content(status: str):
+        if status == 'ACCEPTANCE':
             subject = "Congratulations on Your Application!"
             html_content = (
                 "<p>Dear Applicant,</p>"
@@ -26,7 +32,7 @@ def send_email(recipient_email: str, is_acceptance: bool):
                 "Best regards,\n"
                 "Your Company Name"
             )
-        else:
+        elif status == 'REJECTION':
             subject = "Application Status Update"
             html_content = (
                 "<p>Dear Applicant,</p>"
@@ -49,7 +55,7 @@ def send_email(recipient_email: str, is_acceptance: bool):
 
         return subject, html_content, plaintext_content
 
-    subject, html_content, plaintext_content = get_email_content(is_acceptance)
+    subject, html_content, plaintext_content = get_email_content(status)
 
     mail_body = {}
     mail_from = {
@@ -78,9 +84,23 @@ def send_email(recipient_email: str, is_acceptance: bool):
     res = mailer.send(mail_body)
     return res
 
-if __name__ == "__main__":
-    recipient_email = "devendra.r@fyle.in"
-    is_acceptance = False
 
-    result = send_email(recipient_email, is_acceptance)
-    print(result)
+def send_email_bulk(mail_list):
+    for mail in mail_list:
+        send_email(mail['recipient_email'], mail['status'])
+
+        sleep(2)
+        
+
+        
+# if __name__ == "__main__":
+#     recipient_email = "devendra.r@fyle.in"
+#     is_acceptance = False
+
+#     result = send_email(recipient_email, is_acceptance)
+#     print(result)
+
+if __name__ == '__main__':
+    with Connection(redis_conn):
+        worker = Worker(['llms', 'default'])
+        worker.work()
